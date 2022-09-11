@@ -8,6 +8,7 @@ import SocialList from "./SocialList";
 import backgroundImage from "../public/images/backgroundImage.PNG"
 import Image from "next/image";
 import { BsPersonFill } from "react-icons/bs";
+import Link from "next/link";
 export default function Hero() {
     return (
       <Fragment>
@@ -38,13 +39,13 @@ export default function Hero() {
                 </strong>
               </p>
               <p className="pt-3">
-                <button
+                <Link
                   className="btn btn-warning btn px-4 mb-5"
-                  onClick={"/CV"}
+                  href= "/CV"
                   type = "button"
                 >
-                  View My CV
-                </button>
+                  View My Profile 
+                </Link>
               </p>
             </div> 
           </div>
