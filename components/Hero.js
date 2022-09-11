@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 
-import { Container, Stack } from "react-bootstrap";
+import { Button, Container, Stack } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Typed from "react-typed"
 import "./stars.module.scss";
@@ -41,6 +41,7 @@ export default function Hero() {
                 <button
                   className="btn btn-warning btn px-4 mb-5"
                   onClick={"/CV"}
+                  type = "button"
                 >
                   View My CV
                 </button>
