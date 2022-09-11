@@ -11,9 +11,9 @@ export default function Experiences() {
 
   return (
      <Fragment>
-    <section class="resume-section" id="experience">
-    <div class="resume-section-content">
-        <h2 class="mb-5 display-6">Experience</h2>
+    <section className="resume-section" id="experience">
+    <div className="resume-section-content">
+        <h2 className="mb-5 display-6">Experience</h2>
         
 
         {experiences.map((exp, index) => {
