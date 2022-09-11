@@ -12,11 +12,11 @@ export default function Publication() {
           {publications.map((pub, index) => {
             const {id, title, year, url, publisher } = pub
              return (<li key = {index} className="mb-3">
-              <span class="mx-0">
-                <i class="mx-1 inline"> <FaPen /></i>
+              <span className="mx-0">
+                <i className="mx-1 inline"> <FaPen /></i>
               </span>
               <em> {title} </em>
-              <div class="subheading mb-3 text-muted">Publisher: {publisher} - {year}</div>
+              <div className="subheading mb-3 text-muted">Publisher: {publisher} - {year}</div>
             </li>)
           })}
          

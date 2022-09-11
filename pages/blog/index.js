@@ -15,10 +15,10 @@ const Blog = ({ posts }) => {
     <BlogHero />
     <Container className="mb-5">
     <Row xs= "auto" md="auto" className="g-6">
-            {posts.map((post) => {
+            {posts.map((post, index) => {
               return( 
               <Col >
-                <Post post={post} />
+                <Post key = {index} post={post} />
               </Col> )
             })}
       </Row>

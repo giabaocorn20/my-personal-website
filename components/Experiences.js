@@ -20,12 +20,12 @@ export default function Experiences() {
             const { id, date, description, company, job } = exp
             return (
                 <div key = {index} class="d-flex flex-column flex-md-row justify-content-between mb-5">
-            <div class="flex-grow-1">
-                <h3 class="mb-0">{job}</h3>
-                <div class="subheading mb-3 text-muted">{company}</div>
+            <div className="flex-grow-1">
+                <h3 className="mb-0">{job}</h3>
+                <div className="subheading mb-3 text-muted">{company}</div>
                 <p>{description}</p>
             </div>
-            <div class="flex-shrink-0"><span class="text-primary mx-lg-3">{date}</span></div>
+            <div className="flex-shrink-0"><span className="text-primary mx-lg-3">{date}</span></div>
         </div>
             )
         })}
