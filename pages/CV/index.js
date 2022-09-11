@@ -37,7 +37,6 @@ export default function CV() {
                 <a
                   target="_blank"
                   href="/resume/resume.pdf"
-                  download="mycv.pdf"
                 >
                   <Button className="btn position-relative float-right">
                     Pls dont Download my CV now
@@ -49,7 +48,7 @@ export default function CV() {
 
           <div className="col">
             
-              <h1 variant="h1" className="text-center display-1 my-3">
+              <h1 className="text-center display-1 my-3">
                 Curriculum Vitae
               </h1>
               <Container className="p-4 my-2">

@@ -19,7 +19,7 @@ export default function Experiences() {
         {experiences.map((exp, index) => {
             const { id, date, description, company, job } = exp
             return (
-                <div key = {index} class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                <div key = {index} className="d-flex flex-column flex-md-row justify-content-between mb-5">
             <div className="flex-grow-1">
                 <h3 className="mb-0">{job}</h3>
                 <div className="subheading mb-3 text-muted">{company}</div>
@@ -32,7 +32,7 @@ export default function Experiences() {
        
     </div>
 </section>
-<hr class="m-0" />
+<hr clasName="m-0" />
 </Fragment>
     // <section>
     //   <div className="title">

@@ -20,7 +20,6 @@ export default function Skills() {
                   <li
                     alt={language}
                     key={id}
-                    gap={3}
                     className=" fa list-inline-item"
                   >
                     <OverlayTrigger
