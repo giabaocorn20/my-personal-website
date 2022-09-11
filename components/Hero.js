@@ -4,15 +4,13 @@ import { Button, Container, Stack } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Typed from "react-typed"
 import "./stars.module.scss";
-import SocialList from "./SocialList";
-import backgroundImage from "../public/images/backgroundImage.PNG"
-import Image from "next/image";
 import { BsPersonFill } from "react-icons/bs";
 import Link from "next/link";
+import SocialList from "./SocialList";
 export default function Hero() {
     return (
       <Fragment>
-      <div id="home" className="intro route backgorund ">
+      <div id="home" className="intro route bg-image background">
         <div id="stars" />
         <div id="stars2" />
         <div id="stars3" />
@@ -38,14 +36,8 @@ export default function Hero() {
                   />
                 </strong>
               </p>
-              <p className="pt-3">
-                <Link
-                  className="btn btn-warning btn px-4 mb-5"
-                  href= "/CV"
-                  type = "button"
-                >
-                  View My Profile 
-                </Link>
+              <p className="pt-3 text-dark lead quote">
+                  "With mind and skills"
               </p>
             </div> 
           </div>

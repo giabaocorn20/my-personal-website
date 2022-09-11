@@ -4,7 +4,7 @@ import Card from "react-bootstrap/Card";
 const Post = ({ post }) => {
   return (
     
-        <Card className="my-3" style={{ width: "18rem" }}>
+        <Card className="my-3" style={{ width: "16rem" }}>
           <Card.Body>
             <Card.Title>{post.frontmatter.title}</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">

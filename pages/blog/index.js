@@ -13,7 +13,7 @@ const Blog = ({ posts }) => {
   return (
     <>
     <BlogHero />
-    <Container className="mb-5">
+    <Container className="mb-5 mx-5">
     <Row xs= "auto" md="auto" className="g-6">
             {posts.map((post, index) => {
               return( 
