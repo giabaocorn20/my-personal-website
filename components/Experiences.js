@@ -32,7 +32,7 @@ export default function Experiences() {
        
     </div>
 </section>
-<hr clasName="m-0" />
+<hr className="m-0" />
 </Fragment>
     // <section>
     //   <div className="title">
