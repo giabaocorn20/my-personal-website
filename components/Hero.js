@@ -38,13 +38,13 @@ export default function Hero() {
                 </strong>
               </p>
               <p className="pt-3">
-                <a
-                  className="btn btn-info btn js-scroll px-4 mb-5"
-                  href="#work"
+                <button
+                  className="btn btn-warning btn js-scroll px-4 mb-5"
+                  href="/CV"
                   role="button"
                 >
                   View My CV
-                </a>
+                </button>
               </p>
             </div> 
           </div>
