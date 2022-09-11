@@ -39,9 +39,8 @@ export default function Hero() {
               </p>
               <p className="pt-3">
                 <button
-                  className="btn btn-warning btn js-scroll px-4 mb-5"
-                  href="/CV"
-                  role="button"
+                  className="btn btn-warning btn px-4 mb-5"
+                  onClick={"/CV"}
                 >
                   View My CV
                 </button>
