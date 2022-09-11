@@ -39,6 +39,9 @@ export default function Hero() {
               <p className="pt-3 text-dark lead quote">
                   "With mind and skills"
               </p>
+              <p className="pt-3 text-dark text-muted">
+                  Please have a look around my website!
+              </p>
             </div> 
           </div>
         </div>

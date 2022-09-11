@@ -50,7 +50,7 @@ export default function AboutMe() {
               hobby of mine. There are just so many things to learn about web
               development.
               <br />
-              After learning HTML and struggling with CSS (the terminologies is
+              After learning HTML and struggling with CSS (the syntax is
               just so...uncool). But then I found out about CSS framework such
               ass Boostrap, Material UI,...my next stop will be Tailwind CSS and
               WebGl.
