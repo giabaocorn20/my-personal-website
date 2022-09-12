@@ -6,6 +6,8 @@ const Footer = () => {
     //&copy is the copyright symbol
     //new Date().getFullYear() is the current year
     <footer className="footer bg-dark mt-auto py-3">
+
+
       <h5 className="text-center text-muted">
         <small>&copy; {new Date().getFullYear()}</small>
       </h5>
