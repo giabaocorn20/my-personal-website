@@ -14,7 +14,7 @@ export default function Skills() {
           <div className="h3 mb-9">Programming Languages & Tools</div>
           <ul className=" list-inline dev-icons">
            
-          <div class="row">
+          <div className="row">
           {programming_languages.map((value, index) => {
                 const { id, icon, language } = value;
                 return (
