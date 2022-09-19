@@ -22,7 +22,7 @@ export default function CV() {
               <Stack className="py-5" gap={3}>
                 {sidebarData.map((value, index) => {
                   return (
-                    <li key = {index} className="">
+                    <li key = {index}>
                       <span className="h5">
                         <Link
                           href={`${value.link}`}
