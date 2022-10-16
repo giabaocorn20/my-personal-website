@@ -1,8 +1,10 @@
 ---
-title: 'Rate my University Courses'
-date: 'September 20, 2022'
-excerpt: ""University is anadventure, make it worth" they say, so that's why I'm going to take this opputunity to rate the courses that I have taken in TMU :)"
+title: 'Django Crash Course'
+date: 'March 5, 2021'
+excerpt: 'Django is a very powerful, high level Python framework for building web applications'
+cover_image: '/images/posts/img3.jpg'
 ---
+
 Lorem markdownum fine incustoditam unda factura versum occuluere Aeneas, iuvat
 haec praepes [partes epulae](http://cui.com/), in egisse de. Caecisque ter
 manus. Munere in exhalat, ferre sed [habe quaeque saepe](http://ne.org/fretum)
@@ -45,7 +47,7 @@ oscula: tamen. Surgere Epidaurius movit crede soceri Euboicam quoque.
 Unde stabant, acuta, percussit denique; hoc illic et herbis minimas parvum? Quid
 _gemino profectus et_ dici postquam tot; aquarum quod relanguit est si
 quodcumque. Ossaque protinus, quod somno est, repetit, hoc passu est. Qui devia;
-respice humum vobis oscugitla, in Lotis nymphae.
+respice humum vobis oscula, in Lotis nymphae.
 
 Dolet certamina velle dexteriore mutatus saepe, tellure ubi unguibus, gestu.
 Illis cuius finem Sirenes adsueta stridore, pictas quo edidit, nec utque et
