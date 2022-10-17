@@ -8,10 +8,10 @@ export const personal_details = {
     last: "Bao",
     nickname: "Jason",
   },
-  address: "58 Le Duan St, Phuoc Trung Ward",
+  address: "16 Northgate Dr, North York, ON, M3K 1P9",
 
   DOB: "12/06/2003",
-  phone: "+84 862 092 339",
+  phone: "+1 (647)-829-0486",
   email: "giabao.corn20@gmail.com",
   text: "Current undergraduate freshman in electrical engineering with dozens of classroom hours in computer science and web development related courses. Seeking for job experience in techonological field",
 };
