@@ -11,9 +11,10 @@ export default function AboutMe() {
       <h1 className="display-1">About Me.</h1>
       <Container>
         <div className="h2 mb-5">
-          I'm an engineering student that loves building products and web
-          applications. I barely talk, code more!
+          I have an insatiable curiosity and always continuously seeks to
+          improve myself and the projects. Talk less, act more!
         </div>
+
         <Row>
           <Col xs lg="5">
             <div className="h4 mb-3">Contact</div>
@@ -41,26 +42,23 @@ export default function AboutMe() {
             </figcaption>
           </Col>
           <Col>
-            <p className="text-dark container lh-lg">
+            <p className="text-dark container lh-lg py-2">
               Welcome, friend. If you don't know me, I am Bao. You can call me
               Jason as well. I'm currently an electrical engineering student at
-              Toronto Metropolitan University (TMU).
-              <br />
-              I've been developing full-stack application since 2021 as a side
-              hobby of mine. There are just so many things to learn about web
-              development.
-              <br />
-              After learning HTML and struggling with CSS (the syntax is
-              just so...uncool). But then I found out about CSS framework such
-              ass Boostrap, Material UI,...my next stop will be Tailwind CSS and
-              WebGl.
-              <br />
-              I've been coding in React, Node.js, Next.js, MongoDB, MySQL,
-              Bootstrap, etc to name a few. Although I barely know the syntax!
-              <br />
-              I love drinking coffee and Coke, eating croissant and walking
-              around the city at night.
-              <br />
+              Toronto Metropolitan University (TMU). I love study about nature
+              especially Physics and Maths. I used to specialize in Maths during
+              my secondary school years. As a kid, I have always facsinated with
+              engineering topics like chip design, software engineering, etc. So
+              when it come to choose major for University, I knew exactly what I
+              had to choose!
+              <br /> <br />
+              Besides school, I often spend my time learning new skills such as
+              new programming languages or new technology. I sometimes do some
+              DIY projects that I can find online. It is a fun activity to do
+              when I am free!. I love working out, drinking coffee and Coke,
+              eating croissant and walking around the city at night. My
+              favourite anime of all time is Neon Genesis Evagalion.
+              <br /> <br />
               This website is intended to be my personal website where I put my
               CV, blog, and in the future, my prjects. Please, feel free to have
               a look around my website!
