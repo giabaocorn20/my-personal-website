@@ -356,6 +356,22 @@ a:hover {
   display: inline-block;
 }
 
+img[alt$=">"] {
+  float: right;
+}
+
+img[alt$="<"] {
+  float: left;
+}
+
+img[alt$="><"] {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+  float: none!important;
+}
+
 .owl-theme .owl-dots .owl-dot span {
   width: 18px;
   height: 7px;

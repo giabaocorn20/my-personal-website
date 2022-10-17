@@ -17,7 +17,7 @@ const Blog = ({ posts }) => {
     <Row xs= "auto" md="auto" className="g-6">
             {posts.map((post, index) => {
               return( 
-              <Col key = {index} >
+              <Col className="mx-auto" key = {index} >
                 <Post key = {index} post={post} />
               </Col> )
             })}

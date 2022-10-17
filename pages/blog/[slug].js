@@ -11,7 +11,7 @@ export default function PostPage({frontmatter: {title, date, cover_image}, slug,
             <Button class="btn btn-outline-dark my-3" href = '/blog'>Go back</Button>
             <p className="small text-muted text-uppercase">Posted on {date}</p>
             <div className='body container text-justify-center'>
-            <div dangerouslySetInnerHTML={{ __html: marked(content) }}></div>
+            <div className='px-lg-5 mx-lg-5' dangerouslySetInnerHTML={{ __html: marked(content) }}></div>
             </div>
         </Container>
     )
