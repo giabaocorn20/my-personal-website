@@ -9,3 +9,4 @@ I tried to convert Jupyter Notebook to Markdown file but it was unsucessful, I a
 
 1. [Exploring eBay Car Sales Data](https://giabaocorn20.github.io/ebay-car/)
 2. [Finding Heavy Traffic Indicators on I-94](https://giabaocorn20.github.io/I-94-traffic-indicators/)
+3. [Visualization the exchange rate between Euro and US Dollar](https://giabaocorn20.github.io/data-viz-first-time/)
