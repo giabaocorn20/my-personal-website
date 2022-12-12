@@ -9,8 +9,7 @@ export default function Home() {
     <Fragment>
   
       <Hero />
-      
-       
+        
     </Fragment>
   );
 }

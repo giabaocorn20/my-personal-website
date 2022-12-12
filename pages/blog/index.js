@@ -11,13 +11,13 @@ import { Container } from "react-bootstrap";
 
 const Blog = ({ posts }) => {
   return (
-    <>
+    <>"mb-5 mx-5
     <BlogHero />
-    <Container className="mb-5 mx-5">
+    <Container className="auto">  
     <Row xs= "auto" md="auto" className="g-6">
             {posts.map((post, index) => {
               return( 
-              <Col className="mx-4 mx-md-auto" key = {index} >
+              <Col className="mx-auto mx-md-auto" key = {index} >
                 <Post key = {index} post={post} />
               </Col> )
             })}
