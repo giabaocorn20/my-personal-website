@@ -29,12 +29,30 @@ This course is taught by Prof. Catherine Beachemin. Many people disliked her tea
 
     Difficulty: 8/10
 
-This was a difficult math class, especially if you did not understand vectors adequately in high school. Aside from that, the course went at a tremendous speed, so if I were you, I would focus on this class and complete as many practice problems as I could.
+This was a difficult math class, especially without adequate knowledge about vectors in high school. Aside from that, the course went at a tremendous speed, so I had to focus on this class and complete as many practice problems as I could.
 
 ## CHY102 - Chemistry
 
     Difficulty: 4/10
 
 Despite the fact that I have always disliked chemistry because it is a difficult subject, this class was one of my favourites because the professors were so amazing and made the material as simple and easy to understand as possible. In fact, my professor makes it so simple that even a toddler can understand the chemistry concept. The fact that this lesson was asynchronous and you had the full week to complete it is another plus. This class is generally recommended with a 10.
+
+## PHL110 - Philosophy of religions
+
+    Difficulty: 8/10
+
+I hate this class with a passion. I do this course just because it is my liberal and there’ is no other liberal to do. Even though I have lots of interest in religions this course literally the opposite of what I think it is. I do not have the mind for philosophy and I always fall asleep in the class. I have a really bad experience with this class in term of learning. The grading is not too difficult because all I have to do are to go to class (10%), 3 quizzes throughout the term (20% each) and a term paper with 2500 words max (30%). If you are a person that are interested in Philosophy and also religions, you should take this class, else, don’t.
+
+## FRE201 - Introductory French II
+
+    Difficulty: 5/10 
+
+This class is ok. The material isn’t too hard for people that have already known French. My professor is a really chill and funny person, she is very helpful also! You just need a little bit of concentration and do homework for this class then you are fine.
+
+## ECN801 - Engineering Economics
+
+    Difficulty: 7/10
+
+A pain in the 4ss I must say. Even though the material is not too hard, it’s about interest rate, time period, present value, future value, MMAR, IRR, etc. But the calculation is what makes the course hard because it has too many numbers and it is really prone to errors. A problem that you want to solve manually by hands will take you to 20-30 minutes at least. However,  I have found a way to do it quicker. I programmed an entire Excel sheet just for this class and all I need to do is to enter variables and I will have the answer in no time. I also reccommend future Engineering students who are going to take this course do the same approach as me and you will thank me later. You can look at my [Excel](https://docs.google.com/spreadsheets/d/1alKPBq-gp0N3wXtiheqiC0PdVfmqGHj9UCT4bmhMPeg/edit?usp=sharing) sheet for reference.
 
 Will update in the near future!
