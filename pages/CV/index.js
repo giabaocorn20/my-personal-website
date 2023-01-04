@@ -39,7 +39,7 @@ export default function CV() {
                   href="/resume/resume.pdf"
                 >
                   <Button className="btn position-relative float-right">
-                    Pls dont Download my CV now
+                    Download my CV
                   </Button>
                 </a>
               </Stack>

@@ -11,7 +11,7 @@ import { Container } from "react-bootstrap";
 
 const Blog = ({ posts }) => {
   return (
-    <>"mb-5 mx-5
+    <>
     <BlogHero />
     <Container className="auto">  
     <Row xs= "auto" md="auto" className="g-6">

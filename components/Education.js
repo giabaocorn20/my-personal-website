@@ -11,16 +11,16 @@ export default function Education() {
                     <h2 className="mb-5 display-6">Education</h2>
                     
                     {educations.map((value, index) => {
-                        const {school, degrees,stream, gpa, year  } = value
+                        const {school, degrees,stream, gpa, year, description  } = value
                         return(
                             <div key = {index} className="d-flex flex-column flex-md-row justify-content-between mb-5">
                             <div className="flex-grow-1">
                                 <h3 className="mb-0">{school}</h3>
-                              
-                                <div className="subheading mb-3">{degrees}</div>
-                              
+                        
+                                <div className="subheading mt-1"><b>{degrees}</b></div>
                                 <div>{stream}</div>
-                                <p>GPA: {gpa}</p>
+                                {gpa ?  <p>GPA: {gpa}</p> : <p></p>}
+                                {description ? <p>{description}</p> : <p></p> }
                             </div>
                             <div className="flex-shrink-0"><span className="text-primary mx-lg-3">{year}</span></div>
                         </div>

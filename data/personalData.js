@@ -88,30 +88,24 @@ export const experiences = [
 export const awards = [
   {
     id: 1,
-    placement: "2nd place",
-    contest: "Vung Tau Science Fair",
-    cert: "Computer Science topic",
-    school: "Nguyen Du Secondary School",
-    date: "2017",
-    url: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, quaerat temporibus praesentium quisquam ab unde veritatis animi atque repudiandae sit harum sapiente consectetur sunt perspiciatis fugit omnis reiciendis suscipit expedita?",
-  },
-  {
-    id: 2,
-    placement: "",
-    contest: "",
     cert: "Web Development Bootcamp",
     school: "Udemy - Colt Steele",
     date: "Mar 2022",
-    url: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, quaerat temporibus praesentium quisquam ab unde veritatis animi atque repudiandae sit harum sapiente consectetur sunt perspiciatis fugit omnis reiciendis suscipit expedita?",
+    url: "/udemy_certs/web_dev_cert.pdf",
   },
   {
     id: 3,
-    placement: "",
-    contest: "",
     cert: "React Completed Guide",
     school: "Academind",
     date: "Apr 2022",
-    url: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, quaerat temporibus praesentium quisquam ab unde veritatis animi atque repudiandae sit harum sapiente consectetur sunt perspiciatis fugit omnis reiciendis suscipit expedita?",
+    url: "",
+  },
+  {
+    id: 4,
+    cert: "Data Analyst in Python",
+    school: "Dataquest by TMU",
+    date: "Sep 2022 - April 2023",
+    url: "/dataquest_certs.zip",
   },
 ];
 export const programming_languages = [

@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { FaTrophy } from "react-icons/fa";
 import { awards } from "../data/personalData";
-
+import { Button } from "react-bootstrap"
 export default function Awards() {
     return( 
   <Fragment>
@@ -10,12 +10,19 @@ export default function Awards() {
         <h2 className="mb-5 display-6">Awards & Certifications</h2>
         <ul className="fa-ul mx-0 mb-0">
           {awards.map((award, index) => {
-            const {placement, contest, cert, date, school } = award
+            const {cert, date, school, award_true, url } = award
              return (<li key={index} className="mb-3">
               <span className="mx-0">
                 <i className="text-warning mx-1"> <FaTrophy /></i>
               </span>
-              {placement} - {contest} - {cert} - {date}.
+               <a
+                  target="_blank"
+                  href= {url}
+                >
+                 {cert} - {date} - {school}
+                
+                </a> 
+                {award_true}
             </li>)
           })}
          

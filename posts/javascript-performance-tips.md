@@ -1,54 +1,362 @@
 ---
-title: 'Why did I learn Web Development...As an Electrical Engineer'
-date: 'March 4, 2021'
-excerpt: 'We will look at 10 simple tips and tricks to increase the speed of your code when writing JS'
+title: 'The Command Line'
+date: 'Jan 4, 2023'
+excerpt: 'Everything I know about the Command Line'
 cover_image: '/images/posts/img1.jpg'
 ---
 
-Lorem [markdownum](http://insunt.org/inpositaque), et sanguine rutilos dixit
-nigro cornu genus duris linguae. Super hic deus ego adveniens nullumque Venerem
-equis aurem aliisque celare densis dextramque similis **post**: mihi rexerat;
-bis.
 
-1. Scinditur annos
-2. Talia verba
-3. Habet delata villis domui
-4. Geminum viscere deum et utque
 
-## Magnorum nulla avertit pedem neque monimenta terram
+## Table of Contents
 
-Quo numquam, nunc [concussaque](http://mox-cunctos.net/), hora effugit mihi,
-pectore. Hinc fausto, circumspicit cadas; virilibus rapui, timidum rorat cuique
-animorum ac! Quem sit. Venit qui, rex sibi tota, peto _fortis ira suis_ dolusque
-simulatque [incipit crudelesque
-pavens](http://www.corpora.com/terrae-oscula.html) spatiosa conlegit oscula
-equam.
+1. [What is an OS](#what-is-an-os)
+2. [Intro on the Command Line](#introduction-on-the-command-line)
+3. [File System](#file-system)
+4. [Modifying the Filesytem](#modifying-the-filesystem)
+5. [Glob patterns and Wildcards](#glob-patterns-and-wildcards)
+6. [Uset and Permissions](#user-and-permissions)
+7. [File Insopection](#file-inspection)
+8. [Text Processing](#text-processing)
+9. [Redirection and Piplines](#redirection-and-pipelines)
+10. [Standard Streams and File Descriptors](#standard-streams-and-file-descriptors)
 
-## Mensis idem
+As I was studying doing a course about computer science, I stumbled across an interest concept in computer science, that is The command Line. I think It would be best for me to write it down here, not only to concrete my knowledge, but also share it to others people.
 
-Caelestia Ganymedes gentis. Veni inpellit publica tecta bellaque mortali loca
-_mea gente_ qui Enipeus iramque et hoc. _Altera Rex vetitum_; hoc magis dolores
-precor nec. Ubi verba, et aras regia, cognoscere vites tempusque expers, heros?
+Most people interact with computers using graphical user interfaces (GUIs). A GUI is an interface that allows its users to interact with computers using icons and pointing devices, like mouses and track pads.s and pointing devices such as mouses or keyboard.
 
-## Mihi puto pallorem
+Ex: Operating System (OS) that are GUIs-friendly are Windows, iOS, Mac OS,… as well as browsers like Google Chrome, Bing, Firefox. In short, anything that computer-related that can be interacted by mouses are GUIs-friendly.
 
-Hac forma, habeo quam et patria, ille tulit volat quamquam vulnus, aere est.
-Ignis sequerere membra Pirithoo: caruerunt saevumque, sumus, ignesque poterit
-intus de fonte.
+However, this is not the only way for us to interact with computer. In fact, at the time when computer were still expensive and shared by many people. The scientists developed a way to interact with the machine. It is “Command Line Interfaces” (CLIs). A CLIs is a text-only interface into which users type text-based instructions in a console (or terminal) using a specific syntax.
 
-## Quondam montibus tua spes consilioque nata consilioque
+As computers became more common, we began emulating terminals within GUIs (also know as a terminal window or just a terminal).
 
-Abigitque limite. Ipsa levis extulit munera, litora, ira pavet in morte, **te
-in** quas [vix](http://auxiliumquefando.net/vocibus-cum). Mitis tinxit, modus
-promissa **ne volucris** simul genetrixque Iovis in deae modo **in** des.
-_Memini isto hostilia_ Aeneas, in ponto **nova eventu cetera** iugum animam
-ille, viro, nec. Loquendi aves insisto saecula premente nec, at ego poscit ubi
-sub!
+## What is an OS
 
-- Tristis natorum ora talia patriis famae naidas
-- Deus scilicet male miliaque noctisque invenio Nilum
-- Efficerentque devexaque foret haec leve ab fertilis
+ On the first computers, there is no operating system, therefore every program needed the full hardware specification to run correctly and perform standard tasks, and its own drivers for peripheral devices like printers and punched paper card readers. That means you have to physically create an input or a set of instructions on a card, then the machine will do things according to the set of instructions and will later produce
 
-Institerat quantum facies parientem, crepitantis nondum. Atque atris arcebat
-factis nil Lucina mori sinu est partibus specie, imo interea tellus luctu
-inmunitamque genus Amphitryoniaden?
+No one wants to spend time all day punches holes onto a card. As the growing complexity of hardware and application programs eventually made operating systems a necessity for everyday use.
+
+Think of the relationship between an operating system and a computer like the orchestra vs the conductor. The conductor of a great orchestra is an important figure in society; he or she is famous and gets invited on to chat shows. And yet … how much music does a conductor make? None. Not a single note.
+
+The conductor’s value lies in his or her ability to coordinate the activities of the entire orchestra. The conductor knows the strengths and weaknesses of each player and the characteristics of each piece of music. Consequently, the conductor can maximize or optimize the performance of the orchestra and ‘hide’ any weaknesses due to individual players.
+
+The operating system is at the heart of the computer just as the conductor is at the heart of the orchestra’s performance. Where this analogy breaks down lies in the dual-function nature of the modern operating system. Early operating systems were largely programs that optimized resources by scheduling tasks and controlling hardware resources. Today’s graphical operating systems like, Windows, perform the important function of acting as the interface between the user and the computer and its applications. Moreover, some functions that were one user applications have been incorporated into the operating system.
+
+Unix (Uniplexed Information and Computing Service) was born to replace the hardship of punching cards. Unix systems are characterized by a modular design that is sometimes called the "Unix philosophy". According to this philosophy, the operating system should provide a set of simple tools, each of which performs a limited, well-defined function.[5] A unified and inode-based filesystem (the Unix filesystem) and an inter-process communication mechanism known as "pipes" serve as the main means of communication, and a shell scripting and command language (the Unix shell) is used to combine the tools to perform complex workflows.
+
+P/s: Even though they don't all mean the same thing, the terms command-line interface, command language interpreter, shell, console, terminal window, are all interchangeable.
+
+## Introduction on the Command line
+
+### Anatomy of Commands
+
+In their basic form, the commands we pass to the shell look like this . . .
+
+    utility_name parameter1 parameter2 ... parameterN
+
+By definition, a parameter is either an option or an argument. An option is a string of symbols that modifies the behavior of the command, and it always starts with a dash (`-`).
+
+An argument `—` or operand `—` is an object upon which the command acts. The utility (also command or program) is the first item in the instruction.
+
+### Command history
+
+Sometimes, we'll want to run commands repeatedly, or make slight modifications to them. It would be annoying to have to type the commands from scratch every time. Fortunately, most shells offer an interactive way to access the command history by means of the up and down arrow keys
+
+### Ending Your Session
+
+When we're finished using the command-line, we can terminate our session by pressing the "X" button to close the terminal window.
+Alternatively, we can run the `exit` command.
+
+## File system
+
+A **file system** is, among other things, an organizational system for our files. It helps us keep things tidy by placing files together in groups called directories (or folders). Directories can be combined into a group, which will form another directory. We can also group files with directories.
+
+### working directory
+
+ The **current working directory** (or just working directory) is the directory where our terminal's session is located. Whenever a shell is running, it's located somewhere in the directory structure.
+
+ the root directory, represented by a single slash: `/`.
+
+We can use `pwd` (print working directory). It prints to the terminal window the path of the directory we're located in.
+
+We use `ls` to list the contents of any directory that we can access (short for list).
+
+### Inspecting Directories Thoroughly
+
+Perhaps you know about the concept of a **hidden file.** Wikipedia defines a hidden file as a file that, by default, filesystem utilities don't display when showing a directory listing. We can, however, also list hidden files by using the -A option
+
+ Once displayed, you can tell that a file is a hidden file if its name starts with a full stop ..
+
+A file holds more data than its contents, it also has metadata. In this context, metadata is data about the file itself, not its contents.
+
+When listing files, the -l option allows us to display some of the metadata.
+Ls -l
+
+### Navigating the Filesystem
+
+To navigate between files we use the command `cd`, an acronym for "change directory." A common use of the cd command looks like `cd [path]`
+
+### Absolute and Relative paths
+
+An absolute path is any path that starts with a slash (`/`). Any other path is called a relative path, because they are paths relative to the current working directory.
+
+We can use relative paths with every command, not just with `cd`. In fact, every time we passed a filename as an argument to a command, we were using its relative path.
+
+### Shortcut for Filesystem Navigation
+
+`.` and `..` Informally, they mean "current directory" and "parent directory" respectively. This is true regardless of where in the directory structure you are! So `cd ..` will take you to the parent directory of your current directory, while `cd .` will just take you to where you already are
+
+## Modifying the Filesystem
+
+### Creating Directories
+
+To create a directory, we use the command mkdir, an abbreviation of make directory.  To create a directory called `my_directory` in the working directory, we run `mkdir` `my_directory`.
+The POSIX standards are relatively lenient regarding which characters they allow in directory and file names:
+
+* Everything is allowed except for / and something called the null character.
+
+It's also a good idea to avoid the characters >, <, |, :, &, ;, ?, and * because they have special meanings in the shell. For fully portable file names, you should stick to characters in the character range [a-zA-Z0-9._-].
+
+### Deleting directories
+
+To delete empty directories, we can use the `rmdir` (remove directory) command
+
+### Copying Files
+
+To copy the files east and west to coasts, we can use the command `cp`. This command's usage typically looks like this: `cp source_files destination`.
+We should be careful when copying files because `cp` will silently overwrite files with the same name.
+To protect ourselves against this, we can enter the interactive mode of `cp` with the option `-i`
+
+### Copying Directories
+
+Copying a directory isn't as simple as copying files.
+To successfully copy a directory, we need to use the `-R` option with `cp`. The `R` stands for recursive,
+
+### Deleting Directories and files
+
+To delete a file called my_file in the working directory, we use the command rm (for remove) like so: rm my_file.
+ It also has an interactive mode, just like cp, which is accessible through the -i option. If you're not going to use the -i option when deleting files, you should make sure you're deleting the correct files.
+
+### Moving and Renaming Directories and Files
+
+When moving a file, the original file is deleted, and a copy is placed in the location of the user's commands. The command we'll use to move files is `mv`. Contrary to what happens with `cp` and `rm`, `mv` doesn't require a recursive flag to move directories; it works without it.
+
+## Glob patterns and Wildcards
+
+The patterns we create to match filenames are glob patterns. This works in a similar way to regular expressions,
+The character `*` is one example of a wildcard; it acts as a placeholder for any word. In fact, it is a placeholder for any number of characters, including zero characters and spaces, which means it can also match several words.
+t will match any character, any number of times, except for leading dots (`.`). To draw a parallel with regular expressions, *behaves like the regex pattern .*, although there are some differences.
+
+### The ? Wilcard
+
+The wildcard `?` matches any character exactly once. For example, if we use the pattern `?` its, it will match any filename that is four characters long and ends with its.
+
+### Escaping Characters
+
+As with regular expressions, we can use a character's literal meaning (as opposed to its special meaning) by "escaping" it with a backslash (`\`). In these circumstances, a backslash is an escape character.
+
+### The Wildcard []
+
+We also have a wildcard that allows us to match specific characters, as opposed to any character. We call it the square brackets wildcard. In order to match either a, i, or u, we can use the wildcard [aiu]. This will match only one occurrence, just like `?`.
+
+### Other Wilcards
+
+We can use character ranges like `[a-z], [A-Z], [0-9], and [a-Z]`.
+We can also use character classes like `[:alpha:]` (the usual letters), `[:digit:]` (the numbers 0 through 9), `[:lower:]` (lowercase letters), `[:upper:]` (uppercase letters), and `[:alnum:]` (letters and numbers). You can read more about character classes here.
+
+* To list all files (and the content of directories) in the working directory with names that end in . , directly followed by three lowercase letters, we can run `ls *.[[:lower:]][[:lower:]][[:lower:]]`.
+* To list all files (and the content of directories) in the working directory with names that do not start with an uppercase letter and end with a number, we can run `ls [![:upper:]]*[[:digit:]]`.
+
+Wildcard Example Match Description
+
+* `*` All files
+* `???`: All files whose name is three characters long
+* `*.tsv`: All files ending with *.tsv*
+* `20[01][[:digit:]]_*`: Years in the first two decades of the current century, followed by an underscore
+* `[[:lower:]0]\?*.txt`: All files starting with either a lowercase letter or zero, followed by a question mark and ending in .txt
+
+### Search for files
+
+We can search for files by using the find command. This command is extremely powerful — in addition to letting us search for files by name, it allows to search for files as follows:
+
+* Last time the file was accessed
+* Last time the file was modified
+* What type of file it is (directory, regular file, special file, etc.)
+
+## User and Permissions
+
+### Users
+
+In order to protect the integrity of the computer and to protect users from each other, the concept of user arose. Each user has their own set of permissions (actions that the user is allowed to perform). Every action, performed in a *nix system, is performed by a user.
+We can run `whoami` to check the user
+
+### Groups
+
+The output of id was much more verbose than that of whoami. In addition to the identification of the user, it also includes information about which groups the user belongs to. Groups are a mechanism used to facilitate granting and revoking permissions from users
+
+The output is space-separated, and we have three fields:
+
+* `uid=1000(dq)`
+* uid stands for User ID (UID). The UID is a unique number assigned to each user; in this case, it's 1000.
+* For the sake of human readability, a name (dq) is associated to this UID.
+* `gid=1000(dq)`
+* gid stands for Group ID. This field tells us the id and the name of the primary group. We'll learn more about this concept on the next screen.
+* The rest of the information is analogous to that of the UID.
+* `groups=1000(dq),27(sudo)`
+* This field simply lists all the groups to which the user belongs, with their IDs and their names.
+
+### Permissions
+
+Permissions limit the actions we can perform. It was due to (lack of) permissions that we were unable to access the directory
+Since everything is a file, by defining permissions on files, we can define permissions for everything. Permissions have three scopes: there are permissions for the owner, for the owner group, and for everyone else.
+
+### The superuser
+
+. There is a user that has full access to all files and commands: the root user.
+only it has special privileges and its UID is 0 (this is, in fact, what defines it as the root user — the name root is just a convention). On Windows, the corresponding user is called an administrator. The general cross-platform term for this concept is superuser.
+The root user is so powerful that it is a bad practice to log in as the root user for regular tasks. The main reason is security.
+The alternative is to comply with the principle of least privilege, which says that access should be restricted to the minimum necessary. However, users sometimes need elevated privileges to perform certain tasks.
+The shell offers us a similar solution by means of the sudo command (superuser or substitute user do). This command allows us to run commands as if we were other users.
+
+### Changing ownership
+
+We've learned that access control depends not only on permissions but also on ownership. And just as we've learned how to change permissions, we're going to learn how to change ownership of files.
+To do this, we have the commands chown (change owner) and chgrp (change group) at our disposal. We'll only learn about chown because it actually allows us to change the primary group in addition to the owner, so this is sufficient.
+
+## File Inspection
+
+### Text Files
+
+Text files are very important in anything that relates with computers:
+
+* They are one of the most common ways to store and handle data — both regular text and datasets.
+* All code is stored in text.
+* Many file formats, like CSV, HTML, and XML are actually text files.
+
+### Head / tail
+
+By default, head and tail will print 10 rows, but we can adjust the number of rows we choose to print by passing it the option `-n`
+
+   `head [-n [[-]K]] example_data.csv`
+
+Above, `K` represents the number of lines we wish to print. To print the first five lines of `example_data.csv`, we can run head `-n 5`.
+
+### Counting lines
+
+we can use the `wc` utility (word count). It prints newline, word, and byte counts for each file.
+
+### Pretty printing
+
+It is cumbersome to have to guess/estimate/check the number of lines of a file before displaying its contents. Unsurprisingly, the shell comes to the rescue, this time with the column command.
+
+A very useful feature of this command is the `-t` option, which prints the output like a table, making the contents much easier to parse.
+
+### File sample
+
+It's very useful to be able to extract random lines from a file, particularly when the file is large. We can do this in the shell with an appropriate use of the shuf command (for shuffle).
+
+### Type of files
+
+To figure out what kind of file a file is, we can use the `file` command.
+
+## Text Processing
+
+At the beginning of the last lesson, we mentioned that text files are one of the most common ways to store and handle data, and their presence in any data science project is a certainty. Consequently, being able to handle text files is a very useful skill.
+This skill is called text processing. Here are some tasks that fall under this concept:
+
+* Reformatting the text
+* Extracting specific parts of the text
+* Modifying the text
+
+### Concatenate
+
+We can stack them on top of each other with the `cat` command which comes from the verb concatenate (i.e., to link together).
+
+### `Cat` abuse
+
+We also have the `tac` command. It does the same, only it reverses the order (tac is the reverse of `cat`) of the lines (while keeping the order of the files).
+
+We can use cat to do the same by passing the filename to `cat`. Since this isn't the primary purpose of cat and since there are other options for displaying the contents of files, this is called a cat abuse or a useless use of `cat` (and they even hand out awards for that!)
+
+However the use of `cat` in this way is very, very common and unless there is good reason not to do it, it's probably worth it to just go ahead and use it.
+
+### `Grep`
+
+One of the most beautiful things about Unix-like shells is the `grep` command.
+The `re` in `grep` stands for *regular expressions*. More generally, `grep` stands for *global regular expressions print*.
+
+## Redirection and Pipelines
+
+### Printing User Input
+
+There are times when we'll want to save this output in another file. Known as output redirection, we'll redirect the output from the screen to files
+Another need that often occurs while dealing with text files is connecting commands together. For instance, we may want to sort a file, and see the output using less. We can accomplish this by connecting sort and less — more specifically, by redirecting the output of sort to the input of less. Both input and output redirection happens here.
+
+### Redirecting output with >
+
+We are able to print to screen with echo, but what if we want to save the output to a file? We can do this with the redirection operator >. The syntax looks like command `>filename`. Let's see an example.
+We'll use `echo "Trying out >."` in place of command, and my_first_redirection in place of filename.
+
+The redirection operator `>` will:
+
+* Empty the contents of the target file when it is invoked, if the file exists.
+* If it doesn't exist, it will create it.
+
+### Redirecting Output with `>>`
+
+To append output to a file through redirection, we can use the `>>` operator.
+The usage of this operator is exactly the same as with `>`, only `>>` is used. The difference occurs in how they behave. Whereas `>` always creates a new file, `>>` appends to the target file, if the target file exists, otherwise it creates a new file.
+
+### Why Pipelines
+
+Disk space in the old days was a big issue and this process that we just described wasn't always an option, so Ken Thompson implemented a solution: cut off the intermediate step of writing to a file and connect the output of a command to the input of another command. The mechanism that does this is called a **pipeline**.
+
+### Using Pipeline
+
+We can connect the output of command1 to the input of command2 by running command1 | command2. The vertical bar (|) is called a pipe and it is responsible for "piping" the output of the first command into the input of the second command.
+
+### Redirect Errors
+
+Also known as the null device, /dev/null is a special file used to discard data. Any data redirected to this file will be ignored by the operating system and simply disappear. This is useful when a command performs an action and outputs something, but we just care about the action.
+
+## Standard Streams and File Descriptors
+
+### Standard Streams
+
+Every process — every running instance of a command - interacts with its environment by means of communication channels called streams. In *nix systems, processes commonly start with three special kinds of streams called standard streams:
+
+* standard input (which is used to receive input)
+* standard output (where command output goes)
+* standard error (where error messages go)
+
+They are often abbreviated as stdin, stdout, and stderr, respectively.
+
+Back in the day, when computers were still in their infancy, standard input was physically connected to the keyboard, while the other standard streams were connected to the display.
+
+Nowadays, things are a little bit different — they're all connected to the shell, and the shell will take care of emulating this behavior for us. You may recall from the first lesson in the first course that one of the names for the terminal is "terminal emulator", this is why
+
+Redirecting standard errors requires its own syntax. To redirect stderr to a file, we need to precede the > symbol with the number 2.
+
+Appending an error message to a file works in a similar manner to what we've seen before, we just need to use 2>>
+
+### File Descriptors
+
+A parent process is a process that spawned another process. For instance, we are using the Bash shell in this course, when we run a command, say, date, this spawns a new process that is a child process of the Bash process. In this situation, we say that Bash is a parent process of the process spawned by date.
+The names `stdin`, `stdout` and `stderr` exist for human convenience. The shell does not know them by that name. Rather, for each process, the operating system will create a table that will refer to these streams by non-negative integers called file descriptors (fd).
+Typically, we have the following correspondence.
+| File Descriptor | Stream |
+|-----------------|--------|
+| 0               | stdin  |
+| 1               | stdout |
+| 2               | stderr |
+And now we see why the syntax to redirect stderr is `2> —` it refers to the process file descriptor 2.
+We also know that to redirect stdout, we should use `>`. This is, in fact, a bit of syntactic sugar. The full notation is `1>`, which according to the table above and to what we learned, refers to stdout. So, for example, in our previous example, when we ran `ls east south >compass 2>compass`, we could have ran `ls east south 1>compass 2>compass` instead.
+
+### Duplicating File Descriptors
+
+Running command `2>&1` will copy file descriptor 1 into 2. This means that whatever is written to fd 2 will go to where fd 1 goes. Since the shell makes it so that both fd 1 and fd 2 print to screen, this would make no difference.
+
+### Order of Redirections
+
+We should be careful with the order of the redirections. Let's analyze what happens if we swap `1>filename` and `2>&1`, that is, if we run something like command `2>&1 1>filename`.
+The shell reads the redirections from left to right, so it will first encounter `2>&1`.
