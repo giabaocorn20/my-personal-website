@@ -17,6 +17,7 @@ export default function Awards() {
               </span>
                <a
                   target="_blank"
+                  rel="noreferrer"
                   href= {url}
                 >
                  {cert} - {date} - {school}
