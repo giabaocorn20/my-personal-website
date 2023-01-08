@@ -1,6 +1,7 @@
 import { Stack } from "react-bootstrap";
 import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 import { social_links } from "../data/personalData";
+import { Heading } from "@chakra-ui/react";
 
 export default function SocialList() {
   return (
@@ -8,9 +9,12 @@ export default function SocialList() {
       {social_links.map((value, index) => {
         const { icon, link } = value;
         return (
-          <a key = {index} className="fa" href={link}>
+          <Heading>
+            <a key = {index} className="fa" href={link}>
             {icon}
           </a>
+          </Heading>
+          
         );
       })}
     </Stack>

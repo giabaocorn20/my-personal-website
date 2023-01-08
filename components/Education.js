@@ -1,6 +1,7 @@
 
 import { Fragment } from "react"
 import { educations } from "../data/personalData"
+import { Heading } from "@chakra-ui/react";
 export default function Education() {
     
 
@@ -15,7 +16,7 @@ export default function Education() {
                         return(
                             <div key = {index} className="d-flex flex-column flex-md-row justify-content-between mb-5">
                             <div className="flex-grow-1">
-                                <h3 className="mb-0">{school}</h3>
+                                <Heading as='h3' size='md' className="mb-0">{school}</Heading>
                         
                                 <div className="subheading mt-1"><b>{degrees}</b></div>
                                 <div>{stream}</div>

@@ -1,11 +1,12 @@
 ---
 title: 'The Command Line'
-date: 'Jan 4, 2023'
+date_pub: '2023-01-03'
 excerpt: 'Everything I know about the Command Line'
 cover_image: '/images/posts/img1.jpg'
 ---
 
 
+As I was studying doing a course about computer science, I stumbled across an interest concept in computer science, that is The command Line. I think It would be best for me to write it down here, not only to concrete my knowledge, but also share it to others people.
 
 ## Table of Contents
 
@@ -19,8 +20,6 @@ cover_image: '/images/posts/img1.jpg'
 8. [Text Processing](#text-processing)
 9. [Redirection and Piplines](#redirection-and-pipelines)
 10. [Standard Streams and File Descriptors](#standard-streams-and-file-descriptors)
-
-As I was studying doing a course about computer science, I stumbled across an interest concept in computer science, that is The command Line. I think It would be best for me to write it down here, not only to concrete my knowledge, but also share it to others people.
 
 Most people interact with computers using graphical user interfaces (GUIs). A GUI is an interface that allows its users to interact with computers using icons and pointing devices, like mouses and track pads.s and pointing devices such as mouses or keyboard.
 
@@ -113,9 +112,9 @@ We can use relative paths with every command, not just with `cd`. In fact, every
 To create a directory, we use the command mkdir, an abbreviation of make directory.  To create a directory called `my_directory` in the working directory, we run `mkdir` `my_directory`.
 The POSIX standards are relatively lenient regarding which characters they allow in directory and file names:
 
-* Everything is allowed except for / and something called the null character.
+Everything is allowed except for / and something called the null character.
 
-It's also a good idea to avoid the characters >, <, |, :, &, ;, ?, and * because they have special meanings in the shell. For fully portable file names, you should stick to characters in the character range [a-zA-Z0-9._-].
+* It's also a good idea to avoid the characters `>, <, |, :, &, ;, ?, and *` because they have special meanings in the shell. For fully portable file names, you should stick to characters in the character range `[a-zA-Z0-9._-]`.
 
 ### Deleting directories
 

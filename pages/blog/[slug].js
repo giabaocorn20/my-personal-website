@@ -1,67 +1,82 @@
 import fs from 'fs'
-import path from 'path'
 import matter from 'gray-matter'
-import { marked } from 'marked'
-import { Fragment } from 'react'
-import { Button, Container } from "react-bootstrap"
-export default function PostPage({frontmatter: {title, date, cover_image}, slug, content}) {
+import { serialize } from 'next-mdx-remote/serialize'
+import { MDXRemote } from 'next-mdx-remote'
+import path from 'path'
+import BlogLayout from '../../layouts/blog'
+import { blogPostsFilePaths, BLOG_POSTS_PATH } from '../../scripts/mdx'
+import MDXComponents from '../../components/MDXComponents'
+import mdxPrism from 'mdx-prism'
+import readingTime from 'reading-time'
+import("remark-autolink-headings")
+import {
+    Text,
+    Link,
+    Flex,
+    useColorMode,
+    Avatar,
+    Button,
+    Badge,
+    Divider,
+    useToast,
+    Heading,
+} from '@chakra-ui/react'
+import { motion } from "framer-motion"
+
+export default function BlogPost({ source, frontMatter }) {
+    // const { title, date, description, tags, image } = frontMatter
+
     return (
-        <Container>
-            <h1 className='text-center my-3'> {title} </h1>
-            <Button class="btn btn-outline-dark my-3" href = '/blog'>Go back</Button>
-            <p className="small text-muted text-uppercase">Posted on {date}</p>
-            <div className='body container text-justify-center'>
-            <div className='px-lg-5 mx-lg-5' dangerouslySetInnerHTML={{ __html: marked(content) }}></div>
-            </div>
-        </Container>
+        <motion.div
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: .7, delay: .4 }}
+        >
+            <BlogLayout frontMatter={frontMatter}>
+                <MDXRemote {...source} components={MDXComponents} />
+            </BlogLayout>
+        </motion.div>
     )
 }
 
-export async function getStaticPaths() {
-    const files = fs.readdirSync(path.join('posts'))
-//     files = ['django-crash-course.md',
-//   'javascript-performance-tips.md',
-//   'new-in-php-8.md',
-//   'python-book-review.md',
-//   'react-crash-course.md',
-//   'tailwind-vs-bootstrap.md',
-//   'writing-great-unit-tests.md'] array of strign
-    const paths = files.map((filename) => ({
-      params: {
-        slug: filename.replace('.md', ''),
-      }, //replace the 'md' with nothing 
-    }))
+export const getStaticProps = async ({ params }) => {
+    const blogPath = path.join(BLOG_POSTS_PATH, `${params.slug}.mdx`)
+    const source = fs.readFileSync(blogPath)
+    const { content, data } = matter(source)
 
-    // paths = [
-    //     { params: { slug: 'django-crash-course' } },
-    //     { params: { slug: 'javascript-performance-tips' } },
-    //     { params: { slug: 'new-in-php-8' } },
-    //     { params: { slug: 'python-book-review' } },
-    //     { params: { slug: 'react-crash-course' } },
-    //     { params: { slug: 'tailwind-vs-bootstrap' } },
-    //     { params: { slug: 'writing-great-unit-tests' } }
-    //   ]
-  
+    const mdxSource = await serialize(content, {
+        MDXComponents,
+        mdxOptions: {
+            // remarkPlugins: [
+            //     require('remark-code-titles'),
+            //     require('remark-autolink-headings')
+            // ],
+            rehypePlugins: [mdxPrism],
+        },
+        scope: data,
+    })
+
     return {
-      paths,
-      fallback: false,
+        props: {
+            source: mdxSource,
+            frontMatter: {
+                readingTime: readingTime(content),
+                ...data
+            },
+        },
     }
-  }
-  
-  export async function getStaticProps({ params: { slug } }) {
-    const markdownWithMeta = fs.readFileSync(
-      path.join('posts', slug + '.md'),
-      'utf-8'
-    )
-  
-    const { data: frontmatter, content } = matter(markdownWithMeta)
-  
+}
+
+export const getStaticPaths = async () => {
+    const paths = blogPostsFilePaths
+        // Remove file extensions for page paths
+        .map((path) => path.replace(/\.mdx?$/, ''))
+        // Map the path into the static paths object required by Next.js
+        .map((slug) => ({ params: { slug } }))
+
     return {
-      props: {
-        frontmatter,
-        slug,
-        content,
-      },
-      revalidate: 10
+        paths,
+        fallback: false,
     }
-  }
+}
+

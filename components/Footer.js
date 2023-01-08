@@ -1,45 +1,28 @@
-import React from "react";
+import {
+  Flex,
+  useColorMode,
+  useColorModeValue,
+  Box,
+} from "@chakra-ui/react";
+import { Container } from "@chakra-ui/react";
 
-import styled from "styled-components";
 const Footer = () => {
+
   return (
-    //&copy is the copyright symbol
-    //new Date().getFullYear() is the current year
-    <footer className="footer bg-dark mt-auto py-3">
+    <Box bgColor={useColorModeValue("rgb(248, 250, 252)", "gray.900")} mt={4}>
+      <Flex align="center" my={4} direction="column">
+        <Container centerContent>
+          <h5 className="text-center text-muted">
+            <small>&copy; {new Date().getFullYear()}</small>
+          </h5>
 
-
-      <h5 className="text-center text-muted">
-        <small>&copy; {new Date().getFullYear()}</small>
-      </h5>
-      <h5 className="text-center text-muted">
-        <small>All Rights Reserved</small>
-      </h5>
-    </footer>
+          <h5 className="text-center text-muted">
+            <small>All Rights Reserved</small>
+          </h5>
+        </Container>
+      </Flex>
+    </Box>
   );
 };
-
-const Wrapper = styled.footer`
-  height: 5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: var(--clr-black);
-  text-align: center;
-  span {
-    color: var(--clr-primary-5);
-  }
-  h5 {
-    color: var(--clr-white);
-    margin: 0.1rem;
-
-    font-weight: 400;
-    text-transform: none;
-    line-height: 1.25;
-  }
-  @media (min-width: 776px) {
-    flex-direction: row;
-  }
-`;
 
 export default Footer;

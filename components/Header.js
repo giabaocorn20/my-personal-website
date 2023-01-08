@@ -1,28 +1,37 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Head from 'next/head';
-import { Fragment } from 'react';
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Head from "next/head";
+import { Fragment } from "react";
+import { Link, Box, Flex, Text } from "@chakra-ui/react";
+import { GitHubIcon } from "./CustomIcons";
 function Header() {
   return (
-    <Fragment> 
-      <Navbar variant = "light" bg="light" expand="lg">
+    <Fragment>
+      <Link isExternal href="https://github.com/sponsors/giabaocorn20">
+        <Box bgGradient="linear(to-l, #7928CA, #FF0080)">
+          <Flex justify="center" align="center" py={1} px={1} color="white">
+            <GitHubIcon />
+            <Text ml={2}>Sponsor Me!</Text>
+          </Flex>
+        </Box>
+      </Link>
+      <Navbar variant="light" bg="light" expand="lg">
         <Container>
-          <Navbar.Brand href="/">Jabao</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
+            <Nav className="m-auto">
               <Nav.Link href="/about">About me</Nav.Link>
               <Nav.Link href="/CV">My CV</Nav.Link>
               <Nav.Link href="/blog">My Blog</Nav.Link>
-              <Nav.Link href="/contact">Contact</Nav.Link>
+              <Nav.Link href="/projects">Projects</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    </Fragment> 
+    </Fragment>
   );
 }
 

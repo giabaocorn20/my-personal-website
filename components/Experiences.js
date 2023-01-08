@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
 import { experiences } from "../data/personalData";
-import { FaAngleDoubleRight } from 'react-icons/fa'
-import { Button, ListGroup, Stack } from "react-bootstrap";
+import { Heading, Link } from "@chakra-ui/react";
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Experiences() {
@@ -21,7 +21,7 @@ export default function Experiences() {
             return (
                 <div key = {index} className="d-flex flex-column flex-md-row justify-content-between mb-5">
             <div className="flex-grow-1">
-                <h3 className="mb-0">{job}</h3>
+                <Heading as='h3' size='md' className="mb-0">{job}</Heading>
                 <div className="subheading mb-3 text-muted">{company}</div>
                 <p>{description}</p>
             </div>

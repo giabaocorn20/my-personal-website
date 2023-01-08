@@ -1,7 +1,7 @@
 import jsPDF from "jspdf";
 import Link from "next/link";
 import { Fragment, useRef } from "react";
-import { Button, Container, ListGroup, Stack } from "react-bootstrap";
+import { Button, ListGroup, Stack } from "react-bootstrap";
 import AboutMe from "../../components/AboutMe";
 import AboutMeCV from "../../components/AboutMeCV";
 import Awards from "../../components/Awards";
@@ -9,12 +9,14 @@ import Education from "../../components/Education";
 import Experiences from "../../components/Experiences";
 import Interests from "../../components/Interests";
 import Publication from "../../components/Publication";
-
+import Container  from "../../components/Container";
 import Skills from "../../components/Skills";
+import Header from "../../components/Header";
 import { sidebarData } from "../../data/sidebarData";
 export default function CV() {
   return (
     <Fragment>
+      <Header />
       <div className="containerd-fluid">
         <div className="row">
           <div className="col-auto min-vh-10 bg-light px-3 d-sm-none d-md-block d-none d-sm-block ">
@@ -51,7 +53,7 @@ export default function CV() {
               <h1 className="text-center display-1 my-3">
                 Curriculum Vitae
               </h1>
-              <Container className="p-4 my-2">
+              <div className="p-4 my-2">
                 <Stack gap={4} className="mx-auto">
                   <AboutMeCV />
                   <Experiences />
@@ -61,7 +63,7 @@ export default function CV() {
                   <Interests />
                   <Awards />
                 </Stack>
-              </Container>
+              </div>
      
           </div>
         </div>
