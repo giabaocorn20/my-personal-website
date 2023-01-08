@@ -11,10 +11,10 @@ import {
   
   const Navigation = () => {
     const router = useRouter();
-    const homeColor = router.pathname === '/' ? useColorModeValue("blue.500", "blue.700") : useColorModeValue("#000000", "#ffffff");
-    const blogColor = router.pathname.includes('/blog') ? useColorModeValue("blue.500", "blue.700") : useColorModeValue("#000000", "#ffffff");
-    const cvColor = router.pathname.includes('/cv') ? useColorModeValue("blue.500", "blue.700") : useColorModeValue("#000000", "#ffffff");
-    const projectsColor = router.pathname === '/projects' ? useColorModeValue("blue.500", "blue.700") : useColorModeValue("#000000", "#ffffff");
+    // const homeColor = router.pathname === '/' ? useColorModeValue("blue.500", "blue.700") : useColorModeValue("#000000", "#ffffff");
+    // const blogColor = router.pathname.includes('/blog') ? useColorModeValue("blue.500", "blue.700") : useColorModeValue("#000000", "#ffffff");
+    // const cvColor = router.pathname.includes('/cv') ? useColorModeValue("blue.500", "blue.700") : useColorModeValue("#000000", "#ffffff");
+    // const projectsColor = router.pathname === '/projects' ? useColorModeValue("blue.500", "blue.700") : useColorModeValue("#000000", "#ffffff");
   
     return (
       <Flex
@@ -42,10 +42,22 @@ import {
                 variant="ghost"
                 p={[1, 2, 4]}
                 fontWeight={router.pathname === '/' ? "bold" : "normal"}
-                color={homeColor}
+                //color={homeColor}
                 aria-label="Home"
               >
                 Home
+              </Button>
+            </NextLink>
+            <NextLink href="/about">
+              <Button
+                as="a"
+                variant="ghost"
+                p={[1, 2, 4]}
+                fontWeight={router.pathname === '/about' ? "bold" : "normal"}
+                //color={homeColor}
+                aria-label="About me"
+              >
+                About me 
               </Button>
             </NextLink>
   
@@ -55,7 +67,7 @@ import {
                 variant="ghost"
                 p={[1, 2, 4]}
                 fontWeight={router.pathname.includes('/blog') ? "bold" : "normal"}
-                color={blogColor}
+                //color={blogColor}
                 aria-label="Blog"
               >
                 Blog
@@ -66,8 +78,8 @@ import {
                 as="a"
                 variant="ghost"
                 p={[1, 2, 4]}
-                fontWeight={router.pathname.includes('/cv') ? "bold" : "normal"}
-                color={cvColor}
+                fontWeight={router.pathname.includes('/CV') ? "bold" : "normal"}
+                //color={cvColor}
                 aria-label="CV"
               >
                 CV
@@ -79,7 +91,7 @@ import {
                 variant="ghost"
                 p={[1, 2, 4]}
                 fontWeight={router.pathname.includes('/projects') ? "bold" : "normal"}
-                color={projectsColor}
+                //color={projectsColor}
                 aria-label="Projects"
               >
                 Projects

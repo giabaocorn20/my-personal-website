@@ -23,10 +23,10 @@ import { SiMedium } from "react-icons/si";
 import { FiCoffee } from "react-icons/fi";
 import { BsGear } from "react-icons/bs";
 
-const url = "https://benjamincarlson.io/";
-const title = "Home – Benjamin Carlson";
-const description =
-  "Developer, creator, writer, and student living and working in CT. Browse Ben's latest projects, experience, blog posts, and statistics.";
+//const url = "https://benjamincarlson.io/";
+const title = "Home – Jason";
+//const description =
+  //"Developer, creator, writer, and student living and working in CT. Browse Ben's latest projects, experience, blog posts, and statistics.";
 
 export default function Index() {
   const { colorMode } = useColorMode();
@@ -50,12 +50,12 @@ export default function Index() {
     <>
       <NextSeo
         title={title}
-        description={description}
-        canonical={url}
+        //description={description}
+        //canonical={url}
         openGraph={{
-          url,
+         // url,
           title,
-          description,
+         // description,
         }}
       />
       <Container>

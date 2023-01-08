@@ -67,7 +67,7 @@ export default function AboutMe() {
             >
               <Flex flexDir={["column", "row", "row"]}>
                 <Link
-                  href="/contact"
+                  href="giabao.corn20@gmail.com"
                   _hover={{ textDecor: "none" }}
                   w={["100%", "100%", null]}
                   mr={[0, 2, 2]}
