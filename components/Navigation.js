@@ -68,7 +68,7 @@ import {
                 p={[1, 2, 4]}
                 fontWeight={router.pathname.includes('/cv') ? "bold" : "normal"}
                 color={cvColor}
-                aria-label="Blog"
+                aria-label="CV"
               >
                 CV
               </Button> 
@@ -78,18 +78,16 @@ import {
                 as="a"
                 variant="ghost"
                 p={[1, 2, 4]}
-                fontWeight={router.pathname === '/projects' ? "bold" : "normal"}
+                fontWeight={router.pathname.includes('/projects') ? "bold" : "normal"}
                 color={projectsColor}
                 aria-label="Projects"
               >
                 Projects
-              </Button>
+              </Button> 
             </NextLink>
-          </Box>
+            </Box>
         </motion.div>
-      </Flex>
+        </Flex>
     )
   }
-  
-  export default Navigation
-  
+    export default Navigation

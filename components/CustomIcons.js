@@ -35,8 +35,7 @@ export const GitHubIcon = (props) => (
 export const LinkedInIcon = (props) => (
     <Icon {...props}>
         <svg viewBox="0 0 24 24">
-            <g
-                fill="none"
+            <g   
                 stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
