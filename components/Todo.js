@@ -98,9 +98,9 @@ const Todo = () => {
                     <Text color={colorSecondary[colorMode]}>Here is a list of things I plan to accomplish over the next year. Try it out yourself!</Text>
                     <InputGroup size="md" mt={4}  borderColor={borderColor[colorMode]}>
                         <InputLeftElement
-                            pointerEvents="none"
-                            children={<Search2Icon color={useColorModeValue("gray.500", "gray.600")} />}
-                        />
+                            pointerEvents="none">
+                                <Search2Icon color={useColorModeValue("gray.500", "gray.600")} />
+                            </InputLeftElement>
                         <Input
                             aria-label="Enter a Todo!"
                             placeholder="Improve Python skills 🐍"

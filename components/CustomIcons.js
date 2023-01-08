@@ -4,7 +4,7 @@ export const TwitterIcon = (props) => (
     <Icon {...props}>
         <svg viewBox="0 0 24 24">
             <g
-                fill="none"
+                
                 stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
@@ -20,7 +20,7 @@ export const GitHubIcon = (props) => (
     <Icon {...props}>
         <svg viewBox="0 0 24 24">
             <g
-                fill="none"
+               
                 stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
@@ -54,7 +54,7 @@ export const YoutubeIcon = (props) => (
     <Icon {...props}>
         <svg viewBox="0 0 24 24">
             <g
-                fill="none"
+               
                 stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
@@ -71,7 +71,7 @@ export const MailIcon = (props) => (
     <Icon {...props}>
         <svg viewBox="0 0 24 24">
             <g
-                fill="none"
+                
                 stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"

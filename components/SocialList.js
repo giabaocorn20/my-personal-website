@@ -9,8 +9,8 @@ export default function SocialList() {
       {social_links.map((value, index) => {
         const { icon, link } = value;
         return (
-          <Heading>
-            <a key = {index} className="fa" href={link}>
+          <Heading key = {index}>
+            <a  className="fa" href={link}>
             {icon}
           </a>
           </Heading>
