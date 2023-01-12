@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { programming_languages } from "../data/personalData";
-import { Stack, Heading } from '@chakra-ui/react'
+import { Stack, Heading, Flex, Container } from '@chakra-ui/react'
 
 export default function Skills() {
   return (
@@ -14,14 +14,14 @@ export default function Skills() {
           <ul className=" list-inline dev-icons">
            
           <div className="row">
-            <Stack direction={"row"}>
+            <Flex direction={"row"} minWidth='max-content'>
           {programming_languages.map((value, index) => {
                 const { id, icon, language } = value;
                 return (
                   <Heading
                     alt={language}
                     key={id}
-                    className=" fa col-size-2 mx-3 list-inline-item"
+                    className="fa col-size-1 mx-2 list-inline-item "
                   >
                     <OverlayTrigger
                       key={language}
@@ -35,7 +35,7 @@ export default function Skills() {
                   </Heading>
                 );
               })}
-              </Stack>
+              </Flex>
           </div>
             
             

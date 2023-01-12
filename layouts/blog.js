@@ -95,12 +95,12 @@ export default function BlogLayout({ children, frontMatter, content }) {
                                     mr={2}
                                 />
                                 <Text fontSize="sm" color={textColor[colorMode]}>
-                                    {frontMatter.by}
+                                    {/* {frontMatter.by} */}
                                     {'Jason Nguyen / '}
                                     {format(parseISO(frontMatter.date_pub), 'MMMM dd, yyyy')}
                                 </Text>
                             </Flex>
-                            * <Text fontSize="sm" color="gray.500" minWidth="100px" mt={[2, 0]}>
+                            <Text fontSize="sm" color="gray.500" minWidth="100px" mt={[2, 0]}>
                             {frontMatter.readingTime.text}
                             {` • `}
                         </Text> 
