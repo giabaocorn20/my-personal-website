@@ -117,12 +117,12 @@ export default function Index() {
                 // language="TypeScript"
                 />
                 <ProjectCard
-                // title="benjamincarlson.io"
-                // description="This website is a personal website I built to showcase my projects and experience."
-                // repoHref="https://github.com/bjcarlson42/benjamincarlson.io"
-                // demoHref="https://benjamincarlson.io"
-                // languageColor="#f1e05a"
-                // language="JavaScript"
+                title="Personal website"
+                description="This website is a personal website I built to showcase my projects and experience."
+                repoHref="https://github.com/giabaocorn20/giabaocorn20.github.io"
+                demoHref="https://my-personal-website-a7646whcp-giabaocorn20.vercel.app/"
+                languageColor= '#f1e05a'
+                language="JavaScript"
                 />
                 <ProjectCard
                 // title="Word Of The Day App"

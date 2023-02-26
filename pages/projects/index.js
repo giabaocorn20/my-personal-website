@@ -11,8 +11,8 @@ import { motion } from "framer-motion"
 import Container from '../../components/Container'
 import ProjectListFull from '../../components/ProjectListFull'
 
-const url = 'https://benjamincarlson.io/projects'
-const title = 'Projects – Benjamin Carlson'
+const url = ''
+const title = 'Projects – Jason Nguyen'
 const description = 'Here are some of the open source projects and GitHub repos I am working on.'
 
 const Projects = () => {
