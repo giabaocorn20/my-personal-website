@@ -69,7 +69,7 @@ export const educations = [
 export const experiences = [
   {
     id: 1,
-    job: "English Teaching Assistant",
+    job: "Tutor",
     company: "The Forum Education",
     date: "May 2022 - September 2022 (Part-time)",
     description:
@@ -77,11 +77,11 @@ export const experiences = [
   },
   {
     id: 2,
-    job: "Math Tutor",
-    company: "The Forum Education",
-    date: "June 2022 - September 2022 (Part-time)",
+    job: "Kangoroo Math Contest",
+    company: "Toronto Metropolitan University",
+    date: "March 2023",
     description:
-      "Participating in training and development sessions to improve tutoring practices or learn new tutoring techniques. Providing feedback to students using positive reinforcement techniques to encourage, motivate, or build confidence in students.",
+      "As a volunteer for the math contest, I played an integral role in ensuring a smooth and successful event. I assisted with the organization and administration of the contest, provided support and guidance to students during the contest, and monitored the testing environment to prevent cheating or other prohibited activities. Additionally, I collaborated effectively with fellow volunteers and contest organizers to ensure all tasks were completed efficiently. Throughout the event, I maintained a positive and professional attitude, representing the contest and its values with pride.",
   },
 ];
 
