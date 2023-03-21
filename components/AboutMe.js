@@ -93,7 +93,7 @@ export default function AboutMe() {
                   </Button>
                 </Link>
                 <Link
-                  href="https://github.com/sponsors/bjcarlson42"
+                  href="https://www.buymeacoffee.com/giabaocornc"
                   _hover={{ textDecor: "none" }}
                   w={["100%", "100%", null]}
                   isExternal
