@@ -77,11 +77,19 @@ export const experiences = [
   },
   {
     id: 2,
-    job: "Kangoroo Math Contest",
-    company: "Toronto Metropolitan University",
-    date: "March 2023",
+    job: "Barista",
+    company: "Chatime",
+    date: "April 2023",
     description:
-      "As a volunteer for the math contest, I played an integral role in ensuring a smooth and successful event. I assisted with the organization and administration of the contest, provided support and guidance to students during the contest, and monitored the testing environment to prevent cheating or other prohibited activities. Additionally, I collaborated effectively with fellow volunteers and contest organizers to ensure all tasks were completed efficiently. Throughout the event, I maintained a positive and professional attitude, representing the contest and its values with pride.",
+      "Prepared and served high-quality tea beverages to customers, ensuring that they received prompt and courteous service. Effectively communicated product information and promotions to customers, resulting in increased sales and customer satisfaction. Collaborated with team members to ensure smooth operations and efficient customer service, resulting in a positive impact on the organization. Adapted quickly to changes in sales strategies and product offerings, resulting in successful sales outcomes.",
+  },
+  {
+    id: 2,
+    job: "Hacker",
+    company: "Hackathon - Methacks 2023",
+    date: "May 2023",
+    description:
+      "Using CohereAI to create a review analyzer, extract keywords and summarize review which boost revenue for businesses",
   },
 ];
 

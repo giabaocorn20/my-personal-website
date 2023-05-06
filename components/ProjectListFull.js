@@ -84,7 +84,7 @@ const ProjectListFull = () => {
           <SearchIcon color="gray.500" />
         </InputRightElement>
       </InputGroup>
-      <SimpleGrid minChildWidth="300px" spacing="40px">
+      <SimpleGrid minChildWidth="300px" spacing="20px">
         {!filteredProjects.length && (
           <Text>
             No projects found for "<strong>{searchValue}</strong>"!
