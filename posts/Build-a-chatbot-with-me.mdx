@@ -5,15 +5,14 @@ excerpt: 'Let's build a chatbot from scratch with me'
 cover_image: '/images/posts/img6.jpg'
 ---
 
-Build a chatbot from scratch - Dev log
-======================================
+
+# Build a chatbot from scratch - Dev log
 
 Hello everyone, nowadays, after the release of chatGPT - a natural language AI, the Data Science & AI once again rise. Having been interested in data science for so long, now i see that as an oppotunity for me to learn more about the world of AI and data science. today, i am going to try to build a chatbot from scratch, by doing this way, i have the oppotunity to learn how to build a database, how does training AI look like, what is the process of making an AI.
 
 The data im getting to train my AI is from [Kaggle](https://www.kaggle.com/datasets/elvinagammed/chatbots-intent-recognition-dataset). It's a good data to use to train my chatbot.
 
-I - Data Preparation
---------------------
+## I - Data Preparation
 
 ### Import statment
 
@@ -55,8 +54,6 @@ Now let build a dataframe from pandas
     df = pd.DataFrame(data)
     df.head()
 ```
-
-.dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }
 
 |     | intent | text | responses | extension | context | entityType | entities |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -132,7 +129,7 @@ By tokenizing the text data and padding the sequences, we prepare the input (`x_
     print(input_shape)
    ```
 
-    9
+`9`
 
 In the first line, `x_train.shape[1]` retrieves the second dimension of the `x_train` array, which corresponds to the length of the sequences in the input data. The `shape` attribute of a NumPy array returns a tuple indicating the dimensions of the array.
 
@@ -148,8 +145,10 @@ The second line, `print(input_shape)`, simply prints the value of `input_shape` 
     print("output length:", output_length)
    ```
 
-    number of unique words: 117
-    output length: 22
+```python
+number of unique words: 117 
+output length: 22
+```
 
 In this section, `len(tokenizer.word_index)` retrieves the number of unique words in the vocabulary that was learned by the tokenizer. The `word_index` attribute of the tokenizer is a dictionary that maps each word to its corresponding index. By calculating the length of this dictionary, we obtain the total number of unique words in the vocabulary. The value is assigned to the variable `num_vocabulary`. The subsequent line prints the number of unique words to the console, providing visibility into the size of the vocabulary.
 
@@ -185,41 +184,41 @@ By determining the vocabulary size (`num_vocabulary`) and the output length (`ou
 
 3. Embedding Layer:
 
-        x = Embedding(num_vocabulary + 1, 10)(i)
+    `x = Embedding(num_vocabulary + 1, 10)(i)`
 
     This line adds an embedding layer to the model. The embedding layer maps the input sequence of word indices to dense vectors of dimension 10. The `num_vocabulary + 1` represents the size of the vocabulary plus one for out-of-vocabulary (OOV) words.
 
 4. LSTM Layer:
 
-        x = LSTM(10, return_sequences=True)(x)
+    `x = LSTM(10, return_sequences=True)(x)`
 
     This line adds an LSTM layer to the model. The LSTM layer has 10 units and is set to return the entire sequence of outputs rather than just the last output.
 
 5. Flatten Layer:
 
-        x = Flatten()(x)
+    `x = Flatten()(x)`
 
     This line adds a flatten layer to the model. The flatten layer converts the output of the LSTM layer into a 1-dimensional tensor, preparing it for the subsequent dense layer.
 
 6. Dense Layer:
 
-        x = Dense(output_length, activation="softmax")(x)
+    `x = Dense(output_length, activation="softmax")(x)`
 
     This line adds a dense layer to the model. The dense layer has `output_length` units, which corresponds to the number of classes or intents in the output. The activation function used is softmax, which produces a probability distribution over the output classes.
 
 7. Model Compilation:
 
-        model = Model(i, x)
+    `model = Model(i, x)`
 
     This line creates a Keras model using the input layer `i` and output layer `x`. The resulting model can be compiled, trained, and evaluated for intent recognition tasks.
 
 In summary, the code defines a sequential model architecture with an embedding layer to represent the input sequence, an LSTM layer to capture sequential patterns, and a dense output layer to predict the intent based on the learned features.
 
-    model.compile(loss = "sparse_categorical_crossentropy", optimizer = "adam", metrics=["accuracy"])
+`model.compile(loss = "sparse_categorical_crossentropy", optimizer = "adam", metrics=["accuracy"])`
 
 The code snippet you provided compiles the Keras model with specific loss, optimizer, and metrics configurations. Let's break it down:
 
-    model.compile(loss="sparse_categorical_crossentropy", optimizer="adam", metrics=["accuracy"])
+`model.compile(loss="sparse_categorical_crossentropy", optimizer="adam", metrics=["accuracy"])`
 
 * Loss Function: `python loss = "sparse_categorical_crossentropy"` This line sets the loss function for the model. In this case, it uses the "sparse\_categorical\_crossentropy" loss function. This loss function is suitable for multi-class classification tasks where the target variable (intents in this case) is encoded as integers.
 
@@ -229,10 +228,12 @@ The code snippet you provided compiles the Keras model with specific loss, optim
 
 By compiling the model with the specified loss function, optimizer, and metrics, it is ready to be trained and evaluated using the provided configurations. The choice of loss function, optimizer, and metrics depends on the specific requirements of the intent recognition task and can be modified to suit different scenarios.
 
-    ```python
+```python
     train = model.fit(x_train, y_train, epochs = 200)
 
-    ```
+```
+
+   ```python
     Epoch 1/200
     5/5 [==============================] - 6s 18ms/step - loss: 3.0921 - accuracy: 0.0420
     Epoch 2/200
@@ -304,13 +305,13 @@ By compiling the model with the specified loss function, optimizer, and metrics,
     .
     Epoch 200/200
     5/5 [==============================] - 0s 7ms/step - loss: 0.2258 - accuracy: 0.9720
+   ```
 
 The `fit()` function is a method in Keras that trains the model on the provided data. It iterates over the dataset for the specified number of epochs, adjusting the model's internal parameters to minimize the specified loss function and improve performance. During each epoch, the model makes predictions, calculates the loss, and updates its parameters using the optimization algorithm specified during compilation.
 
 In this case, the model will be trained for 200 epochs, meaning it will go through the entire dataset 200 times. This allows the model to learn from the data and improve its performance over time.
 
-III - The result
-----------------
+### III - The result
 
 Now let's see the result
 
@@ -319,7 +320,8 @@ Now let's see the result
     plt.plot(train.history["loss"], label = "training set loss")
     plt.legend()
 ```
-![photo](/images/posts/graph_chatbot.jpg)
+
+![photo](/images/posts/graph_chatbot.png)
 
 According to the graph, the accuary of the model gradually achieves 100% as more training we do, while the loss exponentially decreases.
 
