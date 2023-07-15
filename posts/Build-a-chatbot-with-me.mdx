@@ -319,21 +319,21 @@ According to the graph, the accuary of the model gradually achieves 100% as more
 
 ### IV - The chatbot
 
-1. Setting up an Infinite Loop: The code starts with a `while True` loop, which creates an infinite loop that continues until a certain condition is met.
+Setting up an Infinite Loop: The code starts with a `while True` loop, which creates an infinite loop that continues until a certain condition is met.
 
-2. User Input: The user is prompted to enter their input with the `input("You: ")` line. The input is stored in the `prediction_input` variable.
+User Input: The user is prompted to enter their input with the `input("You: ")` line. The input is stored in the `prediction_input` variable.
 
-3. Preprocessing the User Input: The user input is preprocessed by converting all characters to lowercase and removing any punctuation using a list comprehension.
+Preprocessing the User Input: The user input is preprocessed by converting all characters to lowercase and removing any punctuation using a list comprehension.
 
-4. Tokenization and Padding: The preprocessed input is tokenized using the `tokenizer.texts_to_sequences()` function to convert it into a sequence of word indices. Then, the input sequence is padded using `pad_sequences()` to ensure it has the same length as the `input_shape` defined earlier.
+Tokenization and Padding: The preprocessed input is tokenized using the `tokenizer.texts_to_sequences()` function to convert it into a sequence of word indices. Then, the input sequence is padded using `pad_sequences()` to ensure it has the same length as the `input_shape` defined earlier.
 
-5. Making a Prediction: The preprocessed and padded input is passed to the model's `predict()` function to obtain the model's output, which represents the predicted intent or category.
+Making a Prediction: The preprocessed and padded input is passed to the model's `predict()` function to obtain the model's output, which represents the predicted intent or category.
 
-6. Mapping the Output to a Response: The predicted output is mapped back to its corresponding intent label using the `inverse_transform()` function of the label encoder (`le`). The resulting intent is stored in the `response_tag` variable.
+Mapping the Output to a Response: The predicted output is mapped back to its corresponding intent label using the `inverse_transform()` function of the label encoder (`le`). The resulting intent is stored in the `response_tag` variable.
 
-7. Generating a Random Response: A random response is chosen from a dataframe (`df_responses`) based on the predicted intent. The response is printed as the AI's reply.
+Generating a Random Response: A random response is chosen from a dataframe (`df_responses`) based on the predicted intent. The response is printed as the AI's reply.
 
-8. Exiting the Loop: If the predicted intent is "GoodBye", indicating the user wants to end the conversation, the loop is terminated with the `break` statement.
+Exiting the Loop: If the predicted intent is "GoodBye", indicating the user wants to end the conversation, the loop is terminated with the `break` statement.
 
    ```python
     while True:
