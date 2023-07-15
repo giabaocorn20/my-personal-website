@@ -54,11 +54,11 @@ Now let build a dataframe from pandas
     df.head()
 ```
 
-||     | intent | text | responses | extension | context | entityType | entities |
+|     | intent | text | responses | extension | context | entityType | entities |
 | --- | ------ | ---- | --------- | --------- | ------- | ---------- | -------- |
-| 0   | Greeting | \[Hi, Hi there, Hola, Hello, Hello there, Hya, ...] | \[Hi human, please tell me your GeniSys user, H...] | {'function': '', 'entities': False, 'responses...} | {'in': '', 'out': 'GreetingUserRequest', 'clea...} | NA  | \[\] |
-| 1   | GreetingResponse | \[My user is Adam, This is Adam, I am Adam, It ...] | \[Great! Hi &lt;HUMAN&gt;! How can I help?, Good! Hi ...] | {'function': 'extensions.gHumans.updateHuman',...} | {'in': 'GreetingUserRequest', 'out': '', 'clea...} | NA  | \[{'entity': 'HUMAN', 'rangeFrom': 3, 'rangeTo'...}] |
-| 2   | CourtesyGreeting | \[How are you?, Hi how are you?, Hello how are ...] | \[Hello, I am great, how are you? Please tell m...] | {'function': '', 'entities': False, 'responses...} | {'in': '', 'out': 'CourtesyGreetingUserRequest...} | NA  | \[\] |
+| 0   | Greeting | \[Hi, Hi there, Hola, Hello, Hello there, Hya, ...\] | \[Hi human, please tell me your GeniSys user, H...\] | {'function': '', 'entities': False, 'responses...} | {'in': '', 'out': 'GreetingUserRequest', 'clea...} | NA  | \[\] |
+| 1   | GreetingResponse | \[My user is Adam, This is Adam, I am Adam, It ...\] | \[Great! Hi &lt;HUMAN&gt;! How can I help?, Good! Hi ...\] | {'function': 'extensions.gHumans.updateHuman',...} | {'in': 'GreetingUserRequest', 'out': '', 'clea...} | NA  | \[{'entity': 'HUMAN', 'rangeFrom': 3, 'rangeTo'...\}] |
+| 2   | CourtesyGreeting | \[How are you?, Hi how are you?, Hello how are ...\] | \[Hello, I am great, how are you? Please tell m...\] | {'function': '', 'entities': False, 'responses...} | {'in': '', 'out': 'CourtesyGreetingUserRequest...} | NA  | \[\] |
 
 As you can see, the repsonses and the texts are ok for the coresponding intents, but there is one problem is that they are in an array, which we don't want it to happen so we need to explode the array and make each index an individual cell.
 
