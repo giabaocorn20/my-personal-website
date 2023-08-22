@@ -1,0 +1,238 @@
+---
+title: 'Build a Chatbot with me'
+date_pub: '2023-07-14'
+excerpt: "Let's build a chatbot from scratch with me"
+cover_image: '/images/posts/img6.jpg'
+---
+
+# Build a Virtual Assistant with Langchain and Zapier
+
+In the realm of AI and automation, Langchain and Zapier stand as two exceptional tools, each with unique capabilities that can transform the way we work and interact. Langchain specializes in Conversational AI, enabling human-like conversations, while Zapier automates workflows between apps. When combined, they create a powerful synergy that gives birth to an intelligent virtual assistant capable of not just understanding and responding but also executing actions.
+
+**Langchain's Conversational AI**: Langchain brings lifelike conversations to the table, making interactions seamless and natural. It comprehends user queries, generates contextually relevant responses, and bridges the gap between humans and technology.
+
+**Zapier's Automation Magic**: Zapier is the master of automation, connecting apps and enabling them to collaborate effortlessly. It triggers actions in one app based on events in another, streamlining tasks and minimizing manual effort.
+
+By merging Langchain's conversational prowess with Zapier's automation muscle, you create a virtual assistant that does more than just chat. It performs tasks, gathers information, and executes actions across multiple platforms, all while engaging users in meaningful conversations.
+
+Imagine your virtual assistant not only responding intelligently to inquiries but also performing tasks like searching Google for information and emailing the results. Langchain's understanding meets Zapier's execution, seamlessly bridging the gap between conversation and action.
+
+In this blog, I will show you how to set up Langchain and Zapier together to build a virtual assistant. Let's dive in!
+
+## Process to Build a Virtual Assistant
+
+Building a virtual assistant involves several steps:
+
+1. **Setup**: Obtain API keys for Langchain and Zapier.
+2. **Design**: Define the assistant's tasks and interactions.
+3. **Langchain**: Initialize `OpenAI`, create tools, and set up the agent.
+4. **Zapier**: Initialize `ZapierNLAWrapper`, define actions.
+5. **Input**: Record and process user input, like voice or text.
+6. **Response**: Use Langchain to generate the assistant's response.
+7. **Actions**: Trigger Zapier workflows for actions.
+8. **Display**: Show the assistant's response to the user.
+9. **Test**: Thoroughly test and refine the assistant.
+10. **Deploy**: Deploy and gather user feedback for improvements.
+
+This fusion empowers the assistant to converse naturally while seamlessly automating tasks, creating an efficient and user-friendly virtual companion.
+
+## Building a Primitives Virtual Assistant
+
+Let's start by importing the necessary modules to build the virtual assistant. Langchain has a helpful [documentation](https://python.langchain.com/docs/integrations/tools/zapier) on this, so make sure to check it out.
+
+```python
+import openai
+from langchain.llms import OpenAI
+from langchain.agents import initialize_agent, load_tools
+from langchain.agents.agent_toolkits import ZapierToolkit
+from langchain.memory import ConversationBufferMemory
+from langchain.tools import BaseTool, Tool
+from langchain.utilities.zapier import ZapierNLAWrapper
+from langchain.utilities import GoogleSearchAPIWrapper, GoogleSerperAPIWrapper
+```
+
+You'll need an [OpenAI API key](https://platform.openai.com/account/api-keys) and a [Zapier API key](https://nla.zapier.com/credentials/). These keys are essential to access OpenAI and Zapier's functionality.
+
+```python
+OPENAI_API_KEY = ""
+ZAPIER_NLA_API_KEY = ""
+```
+
+Now, set up the Langchain Language Model, a conversation memory, the Zapier NLA Wrapper, and the Zapier toolkit. This foundation enables your virtual assistant to communicate effectively and perform various actions through the integration of Langchain and Zapier.
+
+```python
+llm = OpenAI(temperature=0, openai_api_key=OPENAI_API_KEY)
+memory = ConversationBufferMemory(memory_key="chat_history")
+zapier = ZapierNLAWrapper(zapier_nla_api_key=ZAPIER_NLA_API_KEY)
+toolkit = ZapierToolkit.from_zapier_nla_wrapper(zapier)
+```
+
+Define `tools` for the Virtual Assistant to use. `Tools` will include the tools defined in your Zapier toolkit along with the "human" tool from Langchain's toolset. These tools collectively define the capabilities of your virtual assistant, allowing it to interact with users, perform actions through Zapier, and more.
+
+```python
+tools = toolkit.get_tools() + load_tools(["human"])
+```
+
+Set up an agent. An agent acts as the conversational orchestrator, processing user inputs, generating coherent responses using Langchain's Language Model, and integrating various tools from the Zapier toolkit to perform tasks like web searches, sending emails, and more. The agent also learns and adapts based on user interactions, enhancing the quality of its responses over time.
+
+```python
+agent = initialize_agent(tools, llm, memory=memory, agent="conversational-react-description", verbose=True)
+```
+
+## Set Up Custom Tools
+
+Now, let's
+
+ create custom tools for our virtual assistant. I'll create Google Search tools as an example. To do this, set up the proper API keys and environment variables. Create `GOOGLE_API_KEY` in the [Google Cloud credential console](https://console.cloud.google.com/apis/credentials) and a `GOOGLE_CSE_ID` using the [Programmable Search Engine](https://programmablesearchengine.google.com/controlpanel/create).
+
+```python
+GOOGLE_API_KEY = ""
+GOOGLE_CSE_ID = ""
+SERPER_API_KEY = ""
+```
+
+Define custom tools using the BaseTool method.
+
+```python
+class GoogleSearchTool(BaseTool):
+    name = "Google Search"
+    description = "Use this tool to search on Google."
+
+    def _run(
+        self, query: str, run_manager: Optional[CallbackManagerForToolRun] = None
+    ) -> str:
+        """Use the tool."""
+        search = GoogleSearchAPIWrapper(google_api_key=GOOGLE_API_KEY, google_cse_id=GOOGLE_CSE_ID)
+        return search.run(query)
+
+    async def _arun(
+        self, query: str, run_manager: Optional[AsyncCallbackManagerForToolRun] = None
+    ) -> str:
+        """Use the tool asynchronously."""
+        raise NotImplementedError("Google Search does not support async")
+```
+
+```python
+class GoogleSerperTool(BaseTool):
+    name = "Google Serper"
+    description = "Useful for when you need to ask with search"
+
+    def _run(
+        self, query: str, run_manager: Optional[CallbackManagerForToolRun] = None
+    ) -> str:
+        """Use the tool."""
+        search = GoogleSerperAPIWrapper(serper_api_key=SERPER_API_KEY)
+        return search.run(query)
+
+    async def _arun(
+        self, query: str, run_manager: Optional[AsyncCallbackManagerForToolRun] = None
+    ) -> str:
+        """Use the tool asynchronously."""
+        raise NotImplementedError("Google Serper does not support async")
+```
+
+## Recording Voice
+
+Let's set up a voice recording functionality, which is optional but a great way to communicate with our virtual assistant.
+
+```python
+import sounddevice as sd
+import soundfile as sf
+import pyttsx3
+import tempfile
+import os
+```
+
+Define the recording parameters.
+
+```python
+duration = 5  # duration of each recording in seconds
+fs = 44100  # sample rate
+channels = 1  # number of channels
+```
+
+Define a `record_audio` function to capture audio for a specified duration, sample rate, and number of channels using the `sounddevice` library.
+
+```python
+def record_audio(duration, fs, channels):
+    print("Recording...")
+    recording = sd.rec(int(duration * fs), samplerate=fs, channels=channels)
+    sd.wait()
+    print("Finished recording.")
+    return recording
+```
+
+Define the `transcribe_audio` function to transcribe recorded audio into text using OpenAI's Audio API.
+
+```python
+def transcribe_audio(recording, fs):
+    with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as temp_audio:
+        sf.write(temp_audio.name, recording, fs)
+        temp_audio.close()
+        with open(temp_audio.name, "rb") as audio_file:
+            openai.api_key = OPENAI_API_KEY
+            transcript = openai.Audio.transcribe("whisper-1", audio_file)
+
+        os.remove(temp_audio.name)
+
+    return transcript["text"].strip()
+```
+
+Define a `speak` function to make the Virtual Assistant reply audibly.
+
+```python
+def speak(text):
+    engine = pyttsx3.init()
+    engine.say(text)
+    engine.runAndWait()
+```
+
+## Wrapping Up
+
+Now, define the tools that our VA will be using.
+
+```python
+tools = [
+    GoogleSearchTool(),
+    GoogleSerperTool(),
+] + toolkit.get_tools() + load_tools(["human"])
+
+agent = initialize_agent(tools, llm, memory=memory, agent="conversational-react-description", verbose=True)
+```
+
+Set up a loop for communication with our VA. For illustration, create a loop where the input is typed.
+
+```python
+while True:
+    user_input = input("Type a message and press Enter to continue: ")
+    if user_input.lower() == "exit":
+        print("Exiting the loop.")
+        break
+    
+    message = user_input
+    print(f"You: {message}")
+    
+    assistant_message = agent.run(message)  # Assuming agent.run() processes the message
+    print(f"Assistant: {assistant_message}")
+```
+
+You can also set up a loop for voice recording and transcription.
+
+```python
+while True:
+    print("Press Enter to start recording.")
+    input()  # Wait for Enter key
+    if user_input.lower() == "exit":
+        print("Exiting the loop.")
+        break
+    recorded_audio = record_audio(duration, fs, channels)
+    message = transcribe_audio(recorded_audio, fs)
+    print(f"You: {message}")
+    assistant_message = agent.run(message)
+    speak(assistant_message)
+```
+
+As we conclude this virtual assistant journey, the partnership between Langchain and Zapier takes center stage. The collaboration of Langchain's conversational finesse with Zapier's automation prowess empowers a virtual assistant that answers questions, performs Google searches, and transcribes audio inputs. The magic lies in combining intelligence and automation.
+
+Langchain manages conversational agents, memory, and tools, while Zapier connects services and actions. Whether enhancing user interactions or streamlining tasks, this collaboration has you covered. For those eager to learn more, the [GitHub repository](https://github.com/giabaocorn20/virtual_assistant) unravels the intricacies of this partnership.
+See you in the next tutorial.
