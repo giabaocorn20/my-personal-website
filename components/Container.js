@@ -19,7 +19,7 @@ const Container = ({ children }) => {
         <Box bgGradient='linear(to-l, #7928CA, #FF0080)'>
           <Flex justify="center" align="center" py={1} color="white">
             <GitHubIcon />
-            <Text ml={2}>Sponsor Me!</Text>
+            <Text ml={2}>Toss a coin!</Text>
           </Flex>
         </Box>
       </Link>
