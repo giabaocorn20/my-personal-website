@@ -55,6 +55,7 @@ Now let build a dataframe from pandas
     df = pd.DataFrame(data)
     df.head()
 ```
+
 ![table](/images/posts/table.png)
 
 As you can see, the repsonses and the texts are ok for the coresponding intents, but there is one problem is that they are in an array, which we don't want it to happen so we need to explode the array and make each index an individual cell.
@@ -66,13 +67,13 @@ As you can see, the repsonses and the texts are ok for the coresponding intents,
     df_patterns.head()
  ```
 
-|     | text | intent |
-| --- | --- | --- |
-| 0   | Hi  | Greeting |
-| 0   | Hi there | Greeting |
-| 0   | Hola | Greeting |
-| 0   | Hello | Greeting |
-| 0   | Hello there | Greeting |
+|     | text         | intent    |
+| --- | ------------ | --------- |
+| 0   | Hi           | Greeting  |
+| 0   | Hi there     | Greeting  |
+| 0   | Hola         | Greeting  |
+| 0   | Hello        | Greeting  |
+| 0   | Hello there  | Greeting  |
 
 ```python
     df_patterns['text'] = df_patterns['text'].apply(lambda x: ''.join(ch for ch in x if ch not in string.punctuation).lower())
@@ -80,13 +81,13 @@ As you can see, the repsonses and the texts are ok for the coresponding intents,
     df_responses.head()
 ```
 
-|     | responses | intent |
-| --- | --- | --- |
-| 0   | hi human please tell me your genisys user | Greeting |
-| 0   | hello human please tell me your genisys user | Greeting |
-| 0   | hola human please tell me your genisys user | Greeting |
-| 1   | great hi human how can i help | GreetingResponse |
-| 1   | good hi human how can i help you | GreetingResponse |
+|   | responses                                     | intent           |
+|---|-----------------------------------------------|------------------|
+| 0 | hi human please tell me your genisys user    | Greeting         |
+| 0 | hello human please tell me your genisys user | Greeting         |
+| 0 | hola human please tell me your genisys user  | Greeting         |
+| 1 | great hi human how can i help                | GreetingResponse |
+| 1 | good hi human how can i help you             | GreetingResponse |
 
 ### The Algorithm
 
@@ -163,64 +164,79 @@ By determining the vocabulary size (`num_vocabulary`) and the output length (`ou
     model = Model(i, x)
   ```
 
-1. Importing Libraries:
-  
-    from tf.keras.layers import Input, Embedding, LSTM, Flatten, Dense
-    from tf.keras.models import Model
+### Crafting the Model Architecture
 
-    This section imports the necessary layers and models from the Keras library to build the model.
+Our model's architecture takes shape through a sequence of carefully designed layers. Let's break down each step:
 
-2. Input Layer:
+#### Input Layer
 
-    `i = Input(shape=(input_shape))`
+The journey begins with an input layer that accommodates the shape of the input data.
 
-    This line defines an input layer with the shape specified by `input_shape`. The `input_shape` is assumed to have been defined earlier in the code.
+```python
+i = Input(shape=(input_shape))
+```
 
-3. Embedding Layer:
+#### Embedding Layer
 
-    `x = Embedding(num_vocabulary + 1, 10)(i)`
+Next, we introduce an embedding layer to map word indices into dense vectors.
 
-    This line adds an embedding layer to the model. The embedding layer maps the input sequence of word indices to dense vectors of dimension 10. The `num_vocabulary + 1` represents the size of the vocabulary plus one for out-of-vocabulary (OOV) words.
+```python
+x = Embedding(num_vocabulary + 1, 10)(i)
+```
 
-4. LSTM Layer:
+#### LSTM Layer
 
-    `x = LSTM(10, return_sequences=True)(x)`
+The Long Short-Term Memory (LSTM) layer captures sequential patterns in the data.
 
-    This line adds an LSTM layer to the model. The LSTM layer has 10 units and is set to return the entire sequence of outputs rather than just the last output.
+```python
+x = LSTM(10, return_sequences=True)(x)
+```
 
-5. Flatten Layer:
+#### Flatten Layer
 
-    `x = Flatten()(x)`
+We then employ a flatten layer to transform the LSTM's output into a 1-dimensional tensor.
 
-    This line adds a flatten layer to the model. The flatten layer converts the output of the LSTM layer into a 1-dimensional tensor, preparing it for the subsequent dense layer.
+```python
+x = Flatten()(x)
+```
 
-6. Dense Layer:
+#### Dense Layer
 
-    `x = Dense(output_length, activation="softmax")(x)`
+A dense layer comes into play, predicting the intent based on learned features.
 
-    This line adds a dense layer to the model. The dense layer has `output_length` units, which corresponds to the number of classes or intents in the output. The activation function used is softmax, which produces a probability distribution over the output classes.
+```python
+x = Dense(output_length, activation="softmax")(x)
+```
 
-7. Model Compilation:
+#### Model Compilation
 
-    `model = Model(i, x)`
+Our architecture comes together by creating a model using the input and output layers.
 
-    This line creates a Keras model using the input layer `i` and output layer `x`. The resulting model can be compiled, trained, and evaluated for intent recognition tasks.
+```python
+model = Model(i, x)
+```
 
-In summary, the code defines a sequential model architecture with an embedding layer to represent the input sequence, an LSTM layer to capture sequential patterns, and a dense output layer to predict the intent based on the learned features.
+### Configuring for Training
 
-`model.compile(loss = "sparse_categorical_crossentropy", optimizer = "adam", metrics=["accuracy"])`
+Of course, we can't forget the crucial step of compiling our model before training. This is where we set the stage for learning.
 
-The code snippet you provided compiles the Keras model with specific loss, optimizer, and metrics configurations. Let's break it down:
+```python
+model.compile(loss="sparse_categorical_crossentropy", optimizer="adam", metrics=["accuracy"])
+```
 
-`model.compile(loss="sparse_categorical_crossentropy", optimizer="adam", metrics=["accuracy"])`
+#### Loss Function
 
-* Loss Function: `python loss = "sparse_categorical_crossentropy"` This line sets the loss function for the model. In this case, it uses the "sparse\_categorical\_crossentropy" loss function. This loss function is suitable for multi-class classification tasks where the target variable (intents in this case) is encoded as integers.
+We choose the "sparse_categorical_crossentropy" loss function, ideal for classifying integer-encoded target variables.
 
-* Optimizer: `python optimizer = "adam"` This line specifies the optimizer to be used during the model training. The "adam" optimizer is a popular optimization algorithm that adapts the learning rate dynamically based on the characteristics of the training data. It is well-suited for a wide range of deep learning tasks.
+#### Optimizer
 
-* Metrics: `python metrics = ["accuracy"]` This line sets the evaluation metric(s) to be used during training and evaluation. In this case, the model will be evaluated based on accuracy, which measures the fraction of correctly predicted intents.
+The "adam" optimizer steps in, dynamically adjusting learning rates to the data's nuances.
 
-By compiling the model with the specified loss function, optimizer, and metrics, it is ready to be trained and evaluated using the provided configurations. The choice of loss function, optimizer, and metrics depends on the specific requirements of the intent recognition task and can be modified to suit different scenarios.
+#### Metrics
+
+We measure model performance using accuracy – the fraction of correctly predicted intents.
+
+And there you have it! With a thoughtfully designed architecture and a well-configured compilation, our intent recognition model is primed for training and evaluation.
 
 ```python
     train = model.fit(x_train, y_train, epochs = 200)
@@ -361,34 +377,30 @@ Exiting the Loop: If the predicted intent is "GoodBye", indicating the user want
             break
    ```
 
-    You: hello
-    1/1 [==============================] - 0s 485ms/step
+ ```python
+  You: hello
+1/1 [==============================] - 0s 485ms/step
+AI: hola human please tell me your genisys user
 
-    AI: hola human please tell me your genisys user
-    You: how are you
+You: how are you
+1/1 [==============================] - 0s 21ms/step
+AI: hello how are you i am great thanks please tell me your genisys user
 
-    1/1 [==============================] - 0s 21ms/step
+You: tell me a story
+1/1 [==============================] - 0s 21ms/step
+AI: system says no
 
-    AI: hello how are you i am great thanks please tell me your genisys user
+You: what is that
+1/1 [==============================] - 0s 31ms/step
+AI: its life jim but not as we know it
 
-    You: tell me a story
-    1/1 [==============================] - 0s 21ms/step
+You: can you show me the way?
+1/1 [==============================] - 0s 23ms/step
+AI: they call you human what can i do for you
 
-    AI: system says no
-
-    You: what is that
-    1/1 [==============================] - 0s 31ms/step
-
-    AI: its life jim but not as we know it
-
-    You: can you show me the way?
-    1/1 [==============================] - 0s 23ms/step
-
-    AI: they call you human what can i do for you
-
-    You: goodbye
-    1/1 [==============================] - 0s 24ms/step
-
-    AI: bye come back again soon
+You: goodbye
+1/1 [==============================] - 0s 24ms/step
+AI: bye come back again soon
+```
 
 Yay so we just built our chatbot from scratch! Not too hard eh? :)
