@@ -12,7 +12,7 @@ function Header() {
     <Fragment>
       <Link isExternal href="https://github.com/sponsors/giabaocorn20">
         <Box bgGradient='linear(to-l, #7928CA, #FF0080)'>
-          <Flex justify="center" align="center" py={1} px={3} color="white">
+          <Flex justify="center" align="center" py={3} px={3} color="white">
             <GitHubIcon />
             <Text ml={2}  alignSelf="center">Toss a coin!</Text>
           </Flex>
