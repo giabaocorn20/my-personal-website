@@ -10,7 +10,6 @@ import Navigation from '../components/Navigation'
 import Hero1 from './Hero1'
 import { useRouter } from 'next/router'
 import { GitHubIcon } from './CustomIcons'
-
 const Container = ({ children }) => {
   const router = useRouter()
   return (

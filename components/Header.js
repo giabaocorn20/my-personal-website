@@ -11,10 +11,10 @@ function Header() {
   return (
     <Fragment>
       <Link isExternal href="https://github.com/sponsors/giabaocorn20">
-        <Box bgGradient="linear(to-l, #7928CA, #FF0080)">
-          <Flex justify="center" align="center" py={1} px={1} color="white">
+        <Box bgGradient='linear(to-l, #7928CA, #FF0080)'>
+          <Flex justify="center" align="center" py={1} color="white">
             <GitHubIcon />
-            <Text ml={2}>  Sponsor me</Text>
+            <Text ml={2}>Toss a coin!</Text>
           </Flex>
         </Box>
       </Link>
