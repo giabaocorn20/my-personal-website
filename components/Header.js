@@ -14,7 +14,7 @@ function Header() {
         <Box bgGradient='linear(to-l, #7928CA, #FF0080)'>
           <Flex justify="center" align="center" py={1} px={3} color="white">
             <GitHubIcon />
-            <Text ml={2}>Toss a coin!</Text>
+            <Text ml={2}  alignSelf="center">Toss a coin!</Text>
           </Flex>
         </Box>
       </Link>
