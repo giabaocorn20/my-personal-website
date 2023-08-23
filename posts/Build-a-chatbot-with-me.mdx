@@ -67,13 +67,7 @@ As you can see, the repsonses and the texts are ok for the coresponding intents,
     df_patterns.head()
  ```
 
-| text         | intent    |
-| ------------ | --------- |
-| Hi           | Greeting  |
-| Hi there     | Greeting  |
-| Hola         | Greeting  |
-| Hello        | Greeting  |
-| Hello there  | Greeting  |
+![table2](/images/posts/table2.png)
 
 ```python
     df_patterns['text'] = df_patterns['text'].apply(lambda x: ''.join(ch for ch in x if ch not in string.punctuation).lower())
@@ -81,13 +75,7 @@ As you can see, the repsonses and the texts are ok for the coresponding intents,
     df_responses.head()
 ```
 
-| responses                                     | intent           |
-|-----------------------------------------------|------------------|
- hi human please tell me your genisys user    | Greeting         |
- hello human please tell me your genisys user | Greeting         |
-| hola human please tell me your genisys user  | Greeting         |
-| great hi human how can i help                | GreetingResponse |
-| good hi human how can i help you             | GreetingResponse |
+![table1](/images/posts/table1.png)
 
 ### The Algorithm
 
