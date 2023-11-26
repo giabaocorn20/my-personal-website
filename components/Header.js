@@ -25,8 +25,8 @@ function Header() {
             <Nav className="m-auto">
             <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/about">About me</Nav.Link>
-              <Nav.Link href="/CV">Blog</Nav.Link>
-              <Nav.Link href="/blog">CV</Nav.Link>
+              <Nav.Link href="/blog">Blog</Nav.Link>
+              <Nav.Link href="/CV">CV</Nav.Link>
               <Nav.Link href="/projects">Projects</Nav.Link>
             </Nav>
           </Navbar.Collapse>
