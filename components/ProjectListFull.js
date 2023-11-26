@@ -50,8 +50,8 @@ const ProjectListFull = () => {
             placeholder="Search by name, description, and language"
           />
           <InputRightElement>
-          <SearchIcon color="gray.500" />
-          </InputRightElement> 
+            <SearchIcon color="gray.500" />
+          </InputRightElement>
         </InputGroup>
         <SimpleGrid minChildWidth="300px" spacing="40px">
           {[...Array(10)].map((_, i) => (
@@ -84,7 +84,7 @@ const ProjectListFull = () => {
           <SearchIcon color="gray.500" />
         </InputRightElement>
       </InputGroup>
-      <SimpleGrid minChildWidth="300px" spacing="20px">
+      <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing="10px">
         {!filteredProjects.length && (
           <Text>
             No projects found for "<strong>{searchValue}</strong>"!

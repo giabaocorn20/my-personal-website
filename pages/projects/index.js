@@ -42,7 +42,7 @@ const Projects = () => {
             />
             <Container>
                 <Flex
-                    flexDirection="column"
+                    flexDirection="row"
                     maxWidth="1000px"
                     alignSelf={[null, "center"]}
                 >
