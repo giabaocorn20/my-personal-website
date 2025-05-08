@@ -52,7 +52,9 @@ export default function Hero() {
                             color={useColorModeValue("gray.600", "gray.500")}
                             mb={6}
                         >
-                            An <strong>Electrical Engineer 👨‍💻</strong>, a <strong> Wizard 📹</strong>, and a <strong>Student 👨‍🎓</strong> living and working in Toronto. You've stumbled onto my online portfolio, resume, blog, and all things in between.
+                            An <strong>Electrical Engineer 👨‍💻</strong>, a <strong> Wizard 📹</strong>, and a <strong>Student 👨‍🎓</strong> living and working in Toronto. You've stumbled onto my online portfolio, resume, blog, and all things in between. 
+                            (THIS WEBSITE IS NO LONGER MAINTAINED AND NOT A TRUE REPRESENTATION OF ME ANYMORE 
+                            <span role="img" aria-label="emoji">😅</span> please go to this link https://giabaocorn20.github.io/my-blog-medium/aboutMe/  ) 
                         </Text>
                     </motion.div>
                     <motion.div
