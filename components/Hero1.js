@@ -52,7 +52,7 @@ export default function Hero() {
                             color={useColorModeValue("gray.600", "gray.500")}
                             mb={6}
                         >
-                            An <strong>electrical engineer 👨‍💻</strong>, <strong>Wizard 📹</strong>, and <strong>student 👨‍🎓</strong> living and working in Toronto. You've stumbled onto my online portfolio, resume, blog, and all things in between.
+                            An <strong>Electrical Engineer 👨‍💻</strong>, a <strong> Wizard 📹</strong>, and a <strong>Student 👨‍🎓</strong> living and working in Toronto. You've stumbled onto my online portfolio, resume, blog, and all things in between.
                         </Text>
                     </motion.div>
                     <motion.div
